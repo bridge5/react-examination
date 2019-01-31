@@ -1,6 +1,6 @@
 # react-examination
 
-Building an User friendly interface with React.js, Redux/Mobx and LESS/SCSS.
+Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
 
 ## Usage
 
