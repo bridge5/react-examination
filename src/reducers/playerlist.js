@@ -1,74 +1,75 @@
 import * as types from '../constants/ActionTypes';
+import { DEFAULT_PAGE, PER_LIST_ITEMS, DEFAULT_PLAYERS } from '../constants/';
 
+const defaultPlayers = DEFAULT_PLAYERS;
 const initialState = {
-  playersById: [
-    {
-      name: 'LeBron James',
-      team: 'LOS ANGELES LAKERS',
-      position: 'SF',
-      starred: true,
-    },
-    {
-      name: 'Kevin Duran',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'SF',
-      starred: false,
-    },
-    {
-      name: 'Anthony Davis',
-      team: 'NEW ORLEANS PELICANS',
-      position: 'PF',
-      starred: false,
-    },
-    {
-      name: 'Stephen Curry',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'PG',
-      starred: false,
-    },
-    {
-      name: 'James Harden',
-      team: 'HOUSTON ROCKETS',
-      position: 'SG',
-      starred: false,
-    },
-    {
-      name: 'Kawhi Leonard',
-      team: 'TORONTO RAPTORS',
-      position: 'SF',
-      starred: false,
-    },
-  ],
+  filteredPlayers: defaultPlayers,
+  currentPlayers: [],
+  currentPage: DEFAULT_PAGE,
 };
 
 export default function players(state = initialState, action) {
   switch (action.type) {
-    case types.ADD_PLAYER:
+    case types.FILTER_PLAYER:
+      const filteredPlayers = action.position === 'ALL'
+        ? defaultPlayers
+        : defaultPlayers.filter(playerById => playerById.position === action.position)
+      const currentPlayers = action.position === 'ALL'
+        ? defaultPlayers
+        : defaultPlayers.filter(playerById => playerById.position === action.position)
+      const currentPage = 1
       return {
         ...state,
-        playersById: [
-          ...state.playersById,
-          {
-            name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
-          },
+        filteredPlayers,
+        currentPlayers,
+        currentPage
+      };
+
+    case types.ADD_PLAYER:
+      const newPlayer = {
+        name: action.name,
+        team: 'LOS ANGELES LAKERS',
+        position: 'SF',
+      }
+      return {
+        ...state,
+        filteredPlayers: [
+          ...state.filteredPlayers,
+          newPlayer,
         ],
+        currentPlayers: state.currentPlayers.length < PER_LIST_ITEMS
+          ? [...state.currentPlayers, newPlayer]
+          : [...state.currentPlayers]
       };
     case types.DELETE_PLAYER:
       return {
         ...state,
-        playersById: state.playersById.filter(
+        filteredPlayers: state.filteredPlayers.filter(
+          (item, index) => index !== action.id,
+        ),
+        currentPlayers: state.filteredPlayers.filter(
           (item, index) => index !== action.id,
         ),
       };
     case types.STAR_PLAYER:
-      let players = [...state.playersById];
+      let players = [...state.filteredPlayers];
       let player = players.find((item, index) => index === action.id);
       player.starred = !player.starred;
       return {
         ...state,
-        playersById: players,
+        filteredPlayers: players,
+      };
+
+    case types.SET_CURRENT_PLAYERS:
+      return {
+        ...state,
+        currentPlayers: action.currentPlayers,
+      };
+      
+    case types.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage,
       };
 
     default:

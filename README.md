@@ -1,21 +1,17 @@
-# react-examination
-
-Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
-
 ## Usage
 
 ```
-$ yarn install
-$ yarn start
-$ open http://localhost:3000
+yarn install
+yarn start
+open http://localhost:3000
 ```
 
 ## Tasks
 
-- Please add pagination support to the list when there are more than *5* entries.
-- Please add option to select position of a player SF/PG and display it.
-- Please add tests using your preferred testing tool (jest, enzyme, mocha, ...).
-- Please add some features that could help you show your personal abilities.
+- Please add pagination support to the list when there are more than 5 entries
+- Please add option to select position of a player SF/PG and display it
+- Please add tests using your preferred testing tool (jest, enzyme, mocha, ...)
+- Please add some features that could help you show your personal abilities
 
 ## Objectives
 

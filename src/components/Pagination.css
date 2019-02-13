@@ -1,0 +1,16 @@
+:local(.pagination) {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+:local(.page) {
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+:local(.current) {
+  color: white;
+  cursor: default;
+}
