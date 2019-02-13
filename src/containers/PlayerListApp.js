@@ -12,7 +12,7 @@ class PlayerListApp extends Component {
 
   render() {
     const {
-      playerlist: { playersById, pageData },
+      playerlist: { playersById, pageData, selectedPage },
     } = this.props;
 
     const actions = {
@@ -44,6 +44,7 @@ class PlayerListApp extends Component {
           breakLabel={'...'}
           breakClassName={'break-me'}
           pageCount={pagination.pageCount}
+          forcePage={selectedPage}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={actions.handlePageClick}
@@ -59,8 +60,15 @@ class PlayerListApp extends Component {
 function mapStateToProps(state) {
   var offset = Math.ceil(state.playerlist.selectedPage * state.playerlist.numberPerPage);
   var players = state.playerlist.playersById.slice(offset, offset + state.playerlist.numberPerPage);
+  if(!players || players.length <= 0){
+      if(state.playerlist.selectedPage >= 1) {
+         state.playerlist.selectedPage--;
+        offset = Math.ceil(state.playerlist.selectedPage * state.playerlist.numberPerPage);
+        players = state.playerlist.playersById.slice(offset, offset + state.playerlist.numberPerPage);
+      }
+  }
   state.playerlist.pageData = players;
-    
+
   return state;
 }
 
