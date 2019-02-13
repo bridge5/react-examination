@@ -8,30 +8,11 @@ import { PlayerList, AddPlayerInput } from '../components';
 import ReactPaginate from 'react-paginate';
 
 
-// set number of players per page
-var PER_PAGE = 5;
-
 class PlayerListApp extends Component {
-  
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      pageData: this.props.playerlist.playersById.slice(0, PER_PAGE)
-    };
-  }
-
-  handlePageClick = data => {
-    var offset = Math.ceil(data.selected * PER_PAGE);
-    var players = this.props.playerlist.playersById.slice(offset, offset + PER_PAGE);
-    this.setState({
-      pageData: players
-    });
-  };
 
   render() {
     const {
-      playerlist: { playersById },
+      playerlist: { playersById, pageData },
     } = this.props;
 
     const actions = {
@@ -41,14 +22,22 @@ class PlayerListApp extends Component {
     };
       
     const pagination = {
-        pageCount: Math.ceil(playersById.length / PER_PAGE)
+        pageCount: Math.ceil(playersById.length / this.props.playerlist.numberPerPage)
     }
+    
+    actions.handlePageClick = data => {
+      this.props.playerlist.selectedPage = data.selected;
+      var offset = Math.ceil(data.selected * this.props.playerlist.numberPerPage);
+      var players = this.props.playerlist.playersById.slice(offset, offset + this.props.playerlist.numberPerPage);
+      this.props.playerlist.pageData = players;
+      this.forceUpdate();
+    };
 
     return (
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
-        <PlayerList players={this.state.pageData} actions={actions} />
+        <PlayerList players={pageData} actions={actions} />
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
@@ -57,7 +46,7 @@ class PlayerListApp extends Component {
           pageCount={pagination.pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
-          onPageChange={this.handlePageClick}
+          onPageChange={actions.handlePageClick}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
@@ -68,6 +57,10 @@ class PlayerListApp extends Component {
 }
 
 function mapStateToProps(state) {
+  var offset = Math.ceil(state.playerlist.selectedPage * state.playerlist.numberPerPage);
+  var players = state.playerlist.playersById.slice(offset, offset + state.playerlist.numberPerPage);
+  state.playerlist.pageData = players;
+    
   return state;
 }
 

@@ -10,8 +10,8 @@ class PlayerList extends Component {
         {this.props.players.map((player, index) => {
           return (
             <PlayerListItem
-              key={index}
-              id={index}
+              key={player.id}
+              id={player.id}
               name={player.name}
               team={player.team}
               position={player.position}
