@@ -38,6 +38,7 @@ class PlayerListApp extends Component {
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
         <PlayerList players={pageData} actions={actions} />
+        {playersById.length > 5 && 
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
@@ -52,6 +53,7 @@ class PlayerListApp extends Component {
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}
         />
+        }
       </div>
     );
   }
