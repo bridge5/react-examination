@@ -45,8 +45,8 @@ class PlayerListApp extends Component {
           breakClassName={'break-me'}
           pageCount={pagination.pageCount}
           forcePage={selectedPage}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
+          marginPagesDisplayed={1}
+          pageRangeDisplayed={3}
           onPageChange={actions.handlePageClick}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}

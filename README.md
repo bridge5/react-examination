@@ -5,9 +5,14 @@ Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
 ## Usage
 
 ```
+// Run App
 $ yarn install
 $ yarn start
 $ open http://localhost:3000
+
+
+// Run tests
+$ yarn test
 ```
 
 ## Tasks

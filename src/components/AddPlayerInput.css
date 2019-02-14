@@ -3,4 +3,21 @@
   border-color: #abaaaa;
   border-left: 0;
   border-right: 0;
+  width: 180px;
+  display: inline;
+  margin-right: 5px;
+}
+
+:local(.addPlayerBox) {
+    padding: 5px;
+}
+
+:local(.addPlayerButton) {
+    margin-top: 5px;
+    width: 100px;
+}
+
+:local(.addPlayerPosition) {
+    width: 100px;
+    display: inline;
 }
