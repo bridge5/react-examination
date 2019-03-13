@@ -2,3 +2,43 @@
   padding-left: 0;
   margin-bottom: 0;
 }
+
+:local(.pageButton) {
+  color: white;
+  margin: 0 5px;
+}
+
+:local(.selectedPageButton) {
+  color: black;
+  margin: 0 5px;
+}
+
+:local(.pagingList) {
+  text-align: center;
+  width: 100%;
+  margin: 5px 0;
+}
+
+:local(.positionToggleSection) {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+:local(.positionList) {
+  display: flex;
+  flex-direction: row;
+}
+
+:local(.positionToggle) {
+  flex: 1;
+  padding: 5px 0;
+  border: 1px solid grey;
+}
+
+:local(.selectedPositionToggle) {
+  flex: 1;
+  background-color: yellow;
+  padding: 5px 0;
+  border: 1px solid grey;
+}
