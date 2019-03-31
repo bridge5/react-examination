@@ -1,44 +1,59 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './PlayerListItem.css';
 
-class PlayerListItem extends Component {
-  render() {
-    return (
-      <li className={styles.playerListItem}>
-        <div className={styles.playerInfos}>
-          <div>
-            <span>{this.props.name}</span>
-          </div>
-          <div>
-            <small>
-              {this.props.team} · {this.props.position}
-            </small>
-          </div>
-        </div>
-        <div className={styles.playerActions}>
-          <button
-            className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.starPlayer(this.props.id)}
-          >
-            <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
-              })}
-            />
-          </button>
-          <button
-            className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.deletePlayer(this.props.id)}
-          >
-            <i className="fa fa-trash" />
-          </button>
-        </div>
-      </li>
-    );
+const PlayerListItem = (props) => {
+
+  const onPositionChange = (evt) => {
+    props.modifyPosition(props.name, evt.target.value);
   }
+
+  return (
+    <li className={styles.playerListItem}>
+      <div className={styles.playerInfos}>
+        <div>
+          <span>{props.name}</span>
+        </div>
+        <div>
+          <small>
+            {props.team} · {props.position}
+          </small>
+        </div>
+      </div>
+      <div className={styles.playerActions}>
+        <select 
+          name='playerPosition' 
+          className={`btn btn-default ${styles.btnAction}`}
+          onChange={onPositionChange}
+          value={props.position}
+        >
+          <option value="PG">PG</option>
+          <option value="SG">SG</option>
+          <option value="SF">SF</option>
+          <option value="PF">PF</option>
+          <option value="C">C</option>
+        </select>
+        <button
+          className={`btn btn-default ${styles.btnAction}`}
+          onClick={() => props.starPlayer(props.id)}
+        >
+          <i
+            className={classnames('fa', {
+              'fa-star': props.starred,
+              'fa-star-o': !props.starred,
+            })}
+          />
+        </button>
+        <button
+          className={`btn btn-default ${styles.btnAction}`}
+          onClick={() => props.deletePlayer(props.id)}
+        >
+          <i className="fa fa-trash" />
+        </button>
+      </div>
+    </li>
+  );
 }
 
 PlayerListItem.propTypes = {

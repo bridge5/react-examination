@@ -15,7 +15,11 @@
 }
 
 :local(.playerActions) {
-  flex: 0 0 90px;
+  flex: 0 0 150px;
+}
+
+:local(.playerActions select) {
+  height: 34px;
 }
 
 :local(.btnAction),

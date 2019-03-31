@@ -12,24 +12,21 @@ class AddPlayerInput extends Component {
         className={classnames('form-control', styles.addPlayerInput)}
         placeholder="Type the name of a player"
         value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
+        onChange={this.handleChange}
+        onKeyDown={this.handleSubmit}
       />
     );
   }
 
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      name: this.props.name || '',
-    };
+  state = {
+    name: this.props.name || ''
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({ name: e.target.value });
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) =>  {
     const name = e.target.value.trim();
     if (e.which === 13) {
       this.props.addPlayer(name);

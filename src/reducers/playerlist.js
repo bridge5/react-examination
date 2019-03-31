@@ -70,6 +70,14 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+    case types.MODIFY_POSITION:
+      let players2 = [...state.playersById];
+      let thePlayer = players2.find((item, index) => item.name === action.name);
+      thePlayer.position = action.position;
+      return {
+        ...state,
+        playersById: players2
+      };
 
     default:
       return state;

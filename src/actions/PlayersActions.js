@@ -20,3 +20,11 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function modifyPosition(name, position) {
+  return {
+    type: types.MODIFY_POSITION,
+    name,
+    position,
+  };
+}
