@@ -1,6 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  pageNumber: 1,
+  filterType: 'ALL',
   playersById: [
     {
       name: 'LeBron James',
@@ -42,6 +44,7 @@ const initialState = {
 };
 
 export default function players(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
     case types.ADD_PLAYER:
       return {
@@ -52,6 +55,7 @@ export default function players(state = initialState, action) {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
             position: 'SF',
+            starred: false
           },
         ],
       };
@@ -70,6 +74,17 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+    case types.FILTER_PLAYER:
+      return {
+        ...state,
+        filterType: action.position,
+        pageNumber: 1
+      }
+    case types.SELECT_PAGE:
+      return {
+        ...state,
+        pageNumber: action.pageNumber
+      }
 
     default:
       return state;

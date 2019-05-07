@@ -20,3 +20,17 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function filterPlayer(position) {
+  return {
+    type: types.FILTER_PLAYER,
+    position,
+  };
+}
+
+export function selectPageNum(pageNumber) {
+  return {
+    type: types.SELECT_PAGE,
+    pageNumber,
+  };
+}

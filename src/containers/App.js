@@ -6,7 +6,12 @@ import PlayerListApp from './PlayerListApp';
 import * as reducers from '../reducers';
 
 const reducer = combineReducers(reducers);
-const store = createStore(reducer);
+// const store = createStore(reducer);
+
+const store = createStore(
+  reducer, /* preloadedState, */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default class App extends Component {
   render() {
