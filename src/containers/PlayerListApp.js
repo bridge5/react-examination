@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
 import { PlayerList, AddPlayerInput } from '../components';
+import { Paginator } from "../components/Paginator/Paginator";
 
 class PlayerListApp extends Component {
   render() {
@@ -22,6 +23,7 @@ class PlayerListApp extends Component {
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
         <PlayerList players={playersById} actions={actions} />
+        <Paginator />
       </div>
     );
   }

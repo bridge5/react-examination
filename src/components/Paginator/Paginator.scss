@@ -1,0 +1,35 @@
+:local(.wrap) {
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    padding: 10px 0;
+}
+
+:local(.btn) {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0 5px;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #d9534f;
+  color: white;
+  outline: 0;
+  text-decoration: none;
+  transition: all .1s linear;
+
+  &:hover {
+    background-color: darken(#d9534f, 5%);
+  }
+  &.active {
+    background-color: #fff;
+    color: #222222;
+    border: 1px solid #222222;
+  }
+}
