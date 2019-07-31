@@ -1,9 +1,11 @@
 import * as types from '../constants/ActionTypes';
 
-export function addPlayer(name) {
+export function addPlayer(name, team, position) {
   return {
     type: types.ADD_PLAYER,
     name,
+    team,
+    position,
   };
 }
 

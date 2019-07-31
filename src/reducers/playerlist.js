@@ -58,8 +58,8 @@ export default function players(state = initialState, action) {
           {
             id: state.idCounter,
             name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            team: action.team,
+            position: action.position,
           },
         ],
         idCounter: state.idCounter + 1,

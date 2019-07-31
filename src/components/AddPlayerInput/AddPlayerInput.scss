@@ -1,0 +1,20 @@
+:local(.addPlayerInput) {
+  border-radius: 0;
+  border-color: #abaaaa;
+  border-left: 0;
+  border-right: 0;
+  margin: 5px 0;
+}
+:local(.playPositionSelector) {
+  margin: 5px 0;
+}
+
+:local(.wrap) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .btn {
+    margin: 5px;
+  }
+}

@@ -1,42 +1,66 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './AddPlayerInput.css';
+import styles from './AddPlayerInput.scss';
 
-class AddPlayerInput extends Component {
-  render() {
-    return (
+const AddPlayerInput = props => {
+  const [name, setName] = useState(props.name || '');
+  const [team, setTeam] = useState(props.team || '');
+  const [position, setPosition] = useState(props.position || 'SF');
+
+  const handleSubmit = e => {
+    if (e.which === 13) {
+      props.addPlayer(name, team, position);
+      handleClean();
+    }
+  };
+
+  const handleClean = () => {
+    setName('');
+    setTeam('');
+    setPosition('');
+  };
+
+  return (
+    <div className={styles.wrap}>
       <input
         type="text"
         autoFocus={true}
         className={classnames('form-control', styles.addPlayerInput)}
         placeholder="Type the name of a player"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
+        value={name}
+        onChange={e => setName(e.target.value)}
+        onKeyDown={handleSubmit}
       />
-    );
-  }
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      name: this.props.name || '',
-    };
-  }
-
-  handleChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  handleSubmit(e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.addPlayer(name);
-      this.setState({ name: '' });
-    }
-  }
-}
+      <input
+        type="text"
+        autoFocus={true}
+        className={classnames('form-control', styles.addPlayerInput)}
+        placeholder="Type the name of team"
+        value={team}
+        onChange={e => setTeam(e.target.value)}
+        onKeyDown={handleSubmit}
+      />
+      <select
+        value={position}
+        className={classnames('form-control', styles.playPositionSelector)}
+        onChange={e => setPosition(e.target.value)}
+      >
+        <option value="SF">SF</option>
+        <option value="PF">PF</option>
+        <option value="C">C</option>
+        <option value="PG">PG</option>
+        <option value="SG">SG</option>
+      </select>
+      <div>
+        <button className="btn btn-success">Submit</button>
+        <button onClick={handleClean} className="btn btn-secondary">
+          Clean
+        </button>
+      </div>
+    </div>
+  );
+};
 
 AddPlayerInput.propTypes = {
   addPlayer: PropTypes.func.isRequired,
