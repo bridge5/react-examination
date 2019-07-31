@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Paginator.scss';
 import { Range, Set } from 'immutable';
 import classnames from 'classnames';
-
+import PropTypes from "prop-types";
 export function buildPageButtons(currentPage, totalPage) {
   let range;
   if (totalPage <= 5 || currentPage <= 3) {
@@ -32,21 +32,20 @@ export function buildPageButtons(currentPage, totalPage) {
 
 export const Paginator = ({ cb, totalPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageButton, setPageButton] = useState(buildPageButtons(1, 20));
-  console.log(pageButton)
-
+  const [pageButton, setPageButton] = useState(buildPageButtons(1, totalPage));
   const onClickPage = pageNumber => {
     setCurrentPage(pageNumber);
-    cb && cb();
+    cb && cb(pageNumber - 1);
   };
 
   useEffect(() => {
-    if(currentPage > pageButton.get(4).value || currentPage < pageButton.get(0).value) {
-      setPageButton(buildPageButtons(currentPage, 20))
+    if (totalPage > 5) {
+      if(currentPage > pageButton.get(4).value || currentPage < pageButton.get(0).value) {
+        setPageButton(buildPageButtons(currentPage, 20))
+      }
     }
-
-  }, [currentPage]);
-
+    setPageButton(buildPageButtons(currentPage, totalPage))
+  }, [currentPage, totalPage]);
 
   return (
     <div className={styles.wrap}>
@@ -69,7 +68,7 @@ export const Paginator = ({ cb, totalPage }) => {
           {v.label}
         </li>
       ))}
-      {currentPage < 20 && (
+      {currentPage < totalPage && (
         <li
           onClick={() => onClickPage(currentPage + 1)}
           className={`${styles.btn}`}
@@ -79,4 +78,8 @@ export const Paginator = ({ cb, totalPage }) => {
       )}
     </div>
   );
+};
+
+Paginator.propTypes = {
+  totalPage: PropTypes.number.isRequired,
 };
