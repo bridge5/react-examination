@@ -4,24 +4,22 @@ import { connect } from 'react-redux';
 
 import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
 import { PlayerList, AddPlayerInput } from '../components';
-import { Paginator } from "../components/Paginator/Paginator";
-import { chunk } from "lodash";
+import { Paginator } from '../components/Paginator/Paginator';
+import { chunk } from 'lodash';
 
 class PlayerListApp extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-          currentPage: 0,
-      }
+    super(props);
+    this.state = {
+      currentPage: 1,
+    };
   }
 
-
   changePage(number) {
-      this.setState({currentPage: number})
+    this.setState({ currentPage: number });
   }
 
   render() {
-    const playersById = this.props.playerlist.playersById;
     const playersByIdPage = chunk(this.props.playerlist.playersById, 5);
     const actions = {
       addPlayer: this.props.addPlayer,
@@ -32,8 +30,16 @@ class PlayerListApp extends Component {
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
-        <PlayerList players={playersByIdPage[this.state.currentPage]} actions={actions} />
-        <Paginator totalPage={playersByIdPage.length} cb={(number) => this.changePage(number)} />
+        <PlayerList
+          changePage={() => this.changePage(this.state.currentPage - 1)}
+          players={playersByIdPage[this.state.currentPage - 1]}
+          actions={actions}
+        />
+        <Paginator
+          totalPage={chunk(this.props.playerlist.playersById, 5).length}
+          cb={number => this.changePage(number)}
+          currentPage={this.state.currentPage}
+        />
       </div>
     );
   }

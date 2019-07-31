@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <li
+    className="undefined active"
+    onClick={[Function]}
+  >
+    1
+  </li>
+  <li
+    className="undefined "
+    onClick={[Function]}
+  >
+    2
+  </li>
+  <li
+    className="undefined "
+    onClick={[Function]}
+  >
+    3
+  </li>
+  <li
+    className="undefined "
+    onClick={[Function]}
+  >
+    4
+  </li>
+  <li
+    className="undefined "
+    onClick={[Function]}
+  >
+    5
+  </li>
+  <li
+    className="undefined"
+    onClick={[Function]}
+  >
+    Next
+  </li>
+</div>
+`;

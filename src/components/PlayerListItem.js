@@ -31,7 +31,7 @@ class PlayerListItem extends Component {
           </button>
           <button
             className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.deletePlayer(this.props.id)}
+            onClick={() => this.props.deletePlayers(this.props.id)}
           >
             <i className="fa fa-trash" />
           </button>
