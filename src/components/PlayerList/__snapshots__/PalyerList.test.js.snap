@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PlayerList with mock Data 1`] = `
+<ul>
+  <li>
+    <div>
+      <div>
+        <span>
+          LeBron James
+        </span>
+      </div>
+      <div>
+        <small>
+          LOS ANGELES LAKERS
+           · 
+          SF
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div>
+      <div>
+        <span>
+          Kevin Duran
+        </span>
+      </div>
+      <div>
+        <small>
+          GOLDEN STATE WARRIORS
+           · 
+          SF
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star-o"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div>
+      <div>
+        <span>
+          Anthony Davis
+        </span>
+      </div>
+      <div>
+        <small>
+          NEW ORLEANS PELICANS
+           · 
+          PF
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star-o"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div>
+      <div>
+        <span>
+          Stephen Curry
+        </span>
+      </div>
+      <div>
+        <small>
+          GOLDEN STATE WARRIORS
+           · 
+          PG
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star-o"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div>
+      <div>
+        <span>
+          James Harden
+        </span>
+      </div>
+      <div>
+        <small>
+          HOUSTON ROCKETS
+           · 
+          SG
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star-o"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+  <li>
+    <div>
+      <div>
+        <span>
+          Kawhi Leonard
+        </span>
+      </div>
+      <div>
+        <small>
+          TORONTO RAPTORS
+           · 
+          SF
+        </small>
+      </div>
+    </div>
+    <div>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-star-o"
+        />
+      </button>
+      <button
+        className="btn btn-default undefined"
+        onClick={[Function]}
+      >
+        <i
+          className="fa fa-trash"
+        />
+      </button>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders PlayerList without data 1`] = `<ul />`;

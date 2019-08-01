@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <input
+    autoFocus={true}
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Type the name of a player"
+    type="text"
+    value=""
+  />
+  <input
+    autoFocus={true}
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Type the name of team"
+    type="text"
+    value=""
+  />
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value="SF"
+  >
+    <option
+      value="SF"
+    >
+      SF
+    </option>
+    <option
+      value="PF"
+    >
+      PF
+    </option>
+    <option
+      value="C"
+    >
+      C
+    </option>
+    <option
+      value="PG"
+    >
+      PG
+    </option>
+    <option
+      value="SG"
+    >
+      SG
+    </option>
+  </select>
+  <div>
+    <button
+      className="btn btn-success"
+      onClick={[Function]}
+    >
+      Submit
+    </button>
+    <button
+      className="btn btn-secondary"
+      onClick={[Function]}
+    >
+      Clean
+    </button>
+  </div>
+</div>
+`;

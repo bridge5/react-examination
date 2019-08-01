@@ -8,11 +8,9 @@ const AddPlayerInput = props => {
   const [team, setTeam] = useState(props.team || '');
   const [position, setPosition] = useState(props.position || 'SF');
 
-  const handleSubmit = e => {
-    if (e.which === 13) {
+  const handleSubmit = () => {
       props.addPlayer(name, team, position);
       handleClean();
-    }
   };
 
   const handleClean = () => {
@@ -30,7 +28,6 @@ const AddPlayerInput = props => {
         placeholder="Type the name of a player"
         value={name}
         onChange={e => setName(e.target.value)}
-        onKeyDown={handleSubmit}
       />
       <input
         type="text"
@@ -39,7 +36,6 @@ const AddPlayerInput = props => {
         placeholder="Type the name of team"
         value={team}
         onChange={e => setTeam(e.target.value)}
-        onKeyDown={handleSubmit}
       />
       <select
         value={position}
@@ -53,7 +49,7 @@ const AddPlayerInput = props => {
         <option value="SG">SG</option>
       </select>
       <div>
-        <button className="btn btn-success">Submit</button>
+        <button onClick={handleSubmit} className="btn btn-success">Submit</button>
         <button onClick={handleClean} className="btn btn-secondary">
           Clean
         </button>
