@@ -1,7 +1,7 @@
 import React from 'react';
 import AddPlayerInput from './AddPlayerInput';
 import renderer from 'react-test-renderer';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 it('renders without crashing', () => {
   const spy = jest.fn();

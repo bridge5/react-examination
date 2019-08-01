@@ -9,8 +9,8 @@ const AddPlayerInput = props => {
   const [position, setPosition] = useState(props.position || 'SF');
 
   const handleSubmit = () => {
-      props.addPlayer(name, team, position);
-      handleClean();
+    props.addPlayer(name, team, position);
+    handleClean();
   };
 
   const handleClean = () => {
@@ -49,7 +49,9 @@ const AddPlayerInput = props => {
         <option value="SG">SG</option>
       </select>
       <div>
-        <button onClick={handleSubmit} className="btn btn-success">Submit</button>
+        <button onClick={handleSubmit} className="btn btn-success">
+          Submit
+        </button>
         <button onClick={handleClean} className="btn btn-secondary">
           Clean
         </button>
