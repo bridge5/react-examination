@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
@@ -20,5 +22,10 @@
   "devDependencies": {
     "react-scripts": "2.1.2"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
