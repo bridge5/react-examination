@@ -4,3 +4,11 @@
   border-left: 0;
   border-right: 0;
 }
+
+.playerInput {
+  display: flex;
+}
+.addPlayerOption {
+  width: 200px;
+}
+

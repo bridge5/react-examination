@@ -50,8 +50,8 @@ export default function players(state = initialState, action) {
           ...state.playersById,
           {
             name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            team: action.team,
+            position: action.position,
           },
         ],
       };

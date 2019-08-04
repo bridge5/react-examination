@@ -1,3 +1,12 @@
+nav.pagination {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+.page-item.disabled {
+  pointer-events: none;
+}
+
 :local(.playerList) {
   padding-left: 0;
   margin-bottom: 0;

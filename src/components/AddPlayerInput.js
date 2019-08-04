@@ -6,15 +6,32 @@ import styles from './AddPlayerInput.css';
 class AddPlayerInput extends Component {
   render() {
     return (
-      <input
-        type="text"
-        autoFocus={true}
-        className={classnames('form-control', styles.addPlayerInput)}
-        placeholder="Type the name of a player"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
-      />
+      <div className="playerInput">
+        <input
+          type="text"
+          autoFocus={true}
+          className={classnames('form-control', styles.addPlayerInput)}
+          placeholder="Type the name of a player"
+          value={this.state.name}
+          onChange={(e) => { this.handleInputChange(e, 'name') }}
+          onKeyDown={(e) => { this.handleSubmit(e) }}
+        />
+        <input 
+          type="text"
+          className={classnames('form-control')}
+          placeholder="Type the team of the player"
+          value={this.state.team}
+          onChange={(e) => this.handleInputChange(e, 'team')}
+        />
+        <select className={classnames('form-control', 'addPlayerOption')} value={this.state.position} onChange={this.handleOptionChange.bind(this)}>
+          <option value="SF">SF</option>
+          <option value="PF">PF</option>
+          <option value="PG">PG</option>
+          <option value="SG">SG</option>
+        </select>
+
+      </div>
+
     );
   }
 
@@ -22,18 +39,29 @@ class AddPlayerInput extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
+      position: this.props.name || 'SF',
+      team: this.props.name || '',
     };
   }
 
-  handleChange(e) {
-    this.setState({ name: e.target.value });
+  handleInputChange(e, type) {
+    if (type === 'name') {
+      this.setState({ name: e.target.value });
+    }
+    else if (type === 'team') {
+      this.setState({ team: e.target.value });
+    }
   }
 
+  handleOptionChange(e) {
+    this.setState({ position: e.target.value });
+  }
+
+
   handleSubmit(e) {
-    const name = e.target.value.trim();
     if (e.which === 13) {
-      this.props.addPlayer(name);
-      this.setState({ name: '' });
+      this.props.addPlayer(this.state.name, this.state.team, this.state.position);
+      this.setState({ name: '', team: '', position: 'SF' });
     }
   }
 }

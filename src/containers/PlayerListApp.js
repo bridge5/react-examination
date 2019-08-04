@@ -17,11 +17,26 @@ class PlayerListApp extends Component {
       starPlayer: this.props.starPlayer,
     };
 
+
+    function playersByStarred (playersById) {
+      let starred = [];
+      let unstarred = [];
+      for (let i = 0; i < playersById.length; i++) {
+        if (playersById[i].starred) {
+          starred.push(playersById[i])
+        }
+        else {
+          unstarred.push(playersById[i])
+        }
+      }
+      return [...starred,...unstarred]
+    }
+
     return (
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
-        <PlayerList players={playersById} actions={actions} />
+        <PlayerList players={playersByStarred(playersById)} actions={actions} />
       </div>
     );
   }
