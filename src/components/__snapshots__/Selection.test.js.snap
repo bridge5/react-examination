@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selection renders without crashing 1`] = `
+<select
+  onChange={[Function]}
+>
+  <option>
+    ALL
+  </option>
+  <option>
+    SF
+  </option>
+  <option>
+    SG
+  </option>
+  <option>
+    PF
+  </option>
+  <option>
+    PG
+  </option>
+</select>
+`;

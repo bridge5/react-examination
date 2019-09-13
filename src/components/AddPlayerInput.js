@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 import styles from './AddPlayerInput.css';
 
 class AddPlayerInput extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      name: this.props.name,
+    };
+  }
+
+  handleChange(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  handleSubmit(e) {
+    const { addPlayer } = this.props;
+    const name = e.target.value.trim();
+    if (e.which === 13) {
+      addPlayer(name);
+      this.setState({ name: '' });
+    }
+  }
+
   render() {
     return (
       <input
@@ -17,29 +37,18 @@ class AddPlayerInput extends Component {
       />
     );
   }
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      name: this.props.name || '',
-    };
-  }
-
-  handleChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
-  handleSubmit(e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.addPlayer(name);
-      this.setState({ name: '' });
-    }
-  }
 }
 
 AddPlayerInput.propTypes = {
   addPlayer: PropTypes.func.isRequired,
+  paginatePlayer: PropTypes.func.isRequired,
+  players: PropTypes.arrayOf(shape([])),
+  name: PropTypes.string,
+};
+
+AddPlayerInput.defaultProps = {
+  players: [],
+  name: '',
 };
 
 export default AddPlayerInput;

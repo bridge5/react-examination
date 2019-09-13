@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders without crashing 1`] = `
+<div>
+  <button
+    key="0"
+    onClick={[Function]}
+  >
+     
+    1
+     
+  </button>
+</div>
+`;

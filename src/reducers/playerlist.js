@@ -1,6 +1,8 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  currentPage: 0,
+  pageLimit : 5,
   playersById: [
     {
       name: 'LeBron James',
@@ -56,21 +58,44 @@ export default function players(state = initialState, action) {
         ],
       };
     case types.DELETE_PLAYER:
+      let realDltIndex = action.data.id + (action.data.page * state.pageLimit);
+      let playerAfter = [...state.playersById].filter((item, index) => index !== realDltIndex);
       return {
         ...state,
-        playersById: state.playersById.filter(
-          (item, index) => index !== action.id,
-        ),
+        playersById: playerAfter,
       };
     case types.STAR_PLAYER:
       let players = [...state.playersById];
-      let player = players.find((item, index) => index === action.id);
+      let realStarIndex = action.data.id + (action.data.page * state.pageLimit);
+      let player = players.find((item, index) => index === realStarIndex);
       player.starred = !player.starred;
       return {
         ...state,
         playersById: players,
       };
-
+    case types.PAGINATE_PLAYER:
+      let paginationPage = [];
+      let playerlist = action.list;
+      let page = 0;
+      for (let i = 0; i < playerlist.length; i++) {
+        if (typeof paginationPage[page] === 'undefined') {
+          paginationPage[page] = [];
+        }
+        if (paginationPage[page].length === state.pageLimit) {
+          page += 1;
+          paginationPage[page] = [];
+        }
+        paginationPage[page].push(playerlist[i]);
+      }
+      return {
+        ...state,
+        paginationPage,
+      };
+    case types.CLICK_PAGE:
+      return {
+        ...state,
+        currentPage: action.page,
+      };
     default:
       return state;
   }

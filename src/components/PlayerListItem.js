@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './PlayerListItem.css';
 
+
 class PlayerListItem extends Component {
   render() {
     return (
@@ -20,7 +21,7 @@ class PlayerListItem extends Component {
         <div className={styles.playerActions}>
           <button
             className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.starPlayer(this.props.id)}
+            onClick={() => this.props.starPlayer(this.props)}
           >
             <i
               className={classnames('fa', {
@@ -31,7 +32,7 @@ class PlayerListItem extends Component {
           </button>
           <button
             className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.deletePlayer(this.props.id)}
+            onClick={() => this.props.deletePlayer(this.props)}
           >
             <i className="fa fa-trash" />
           </button>
@@ -42,6 +43,7 @@ class PlayerListItem extends Component {
 }
 
 PlayerListItem.propTypes = {
+  page: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   team: PropTypes.string.isRequired,
