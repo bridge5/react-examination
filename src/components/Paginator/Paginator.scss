@@ -1,0 +1,14 @@
+:local(.wrap) {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px 0;
+  width: 100%;
+}
+
+:local(.btnAction),
+:local(.btnAction):active,
+:local(.btnAction):focus,
+:local(.btnAction):hover {
+  margin:0 5px;
+}

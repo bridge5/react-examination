@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPlayerInput spec render AddPlayerInput correctly 1`] = `
+<div>
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value=""
+  />
+  <input
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Team Name"
+    type="text"
+    value=""
+  />
+  <select
+    className="form-control"
+    onChange={[Function]}
+    placeholder="Position"
+    value="PG"
+  >
+    <option
+      value="PG"
+    >
+      PG
+    </option>
+    <option
+      value="SG"
+    >
+      SG
+    </option>
+    <option
+      value="SF"
+    >
+      SF
+    </option>
+    <option
+      value="PF"
+    >
+      PF
+    </option>
+    <option
+      value="C"
+    >
+      C
+    </option>
+  </select>
+  <button
+    className=" btn btn-primary "
+    onClick={[Function]}
+  >
+    Add Player
+  </button>
+</div>
+`;

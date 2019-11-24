@@ -1,0 +1,16 @@
+:local(.addPlayerInput) {
+  border-radius: 0;
+  border-color: #abaaaa;
+}
+
+:local(.wrap) {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px 0;
+  width: 100%;
+  > * {
+    width: 25%;
+    margin: 0 5px;
+  }
+}

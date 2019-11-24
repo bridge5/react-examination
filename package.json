@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.13.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -18,7 +20,15 @@
     "redux": "^4.0.1"
   },
   "devDependencies": {
-    "react-scripts": "2.1.2"
+    "enzyme": "^3.10.0",
+    "prettier": "^1.19.1",
+    "react-scripts": "2.1.2",
+    "react-test-renderer": "^16.12.0"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

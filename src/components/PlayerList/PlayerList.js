@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './PlayerList.css';
-import PlayerListItem from './PlayerListItem';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import styles from "./PlayerList.css";
+import PlayerListItem from "../PlayerListItem/PlayerListItem";
 
 class PlayerList extends Component {
   render() {
@@ -11,7 +11,7 @@ class PlayerList extends Component {
           return (
             <PlayerListItem
               key={index}
-              id={index}
+              id={player.id}
               name={player.name}
               team={player.team}
               position={player.position}
@@ -28,6 +28,7 @@ class PlayerList extends Component {
 PlayerList.propTypes = {
   players: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 export default PlayerList;

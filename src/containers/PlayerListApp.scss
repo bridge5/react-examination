@@ -22,3 +22,12 @@ body {
   padding-left: 10px;
   font-family: Helvetica;
 }
+
+:local(.selectWrap) {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  select {
+    width: 33%;
+  }
+}

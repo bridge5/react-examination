@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator spec render Paginator correctly 1`] = `
+<div>
+  <div>
+    <button
+      className="btn btn-default undefined"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Prev
+    </button>
+  </div>
+  <div>
+    <button
+      className="btn btn-primary undefined"
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="btn btn-default undefined"
+      onClick={[Function]}
+    >
+      2
+    </button>
+  </div>
+  <div>
+    <button
+      className="btn btn-default undefined"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
