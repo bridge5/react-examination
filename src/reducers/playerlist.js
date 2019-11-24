@@ -65,7 +65,6 @@ export default function players(state = initialState, action) {
         idAdder: state.idAdder + 1
       };
     case types.DELETE_PLAYER:
-      console.log({ state, action });
       return {
         ...state,
         playersById: state.playersById.filter(item => item.id !== action.id)

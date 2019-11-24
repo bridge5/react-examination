@@ -4,10 +4,20 @@ import PropTypes from "prop-types";
 import { range } from "lodash";
 
 export const Paginator = ({ currentPage, totalPage, changePage }) => {
-  const pageButtons = range(1, totalPage + 1);
+  let pageButtons = [];
+
+  if (totalPage <= 5 || currentPage <= 3) {
+    pageButtons = range(1, Math.min(totalPage, 5) + 1);
+  } else if (currentPage > 3 && totalPage - currentPage > 2) {
+    pageButtons = range(currentPage - 2, currentPage + 3);
+  } else {
+    pageButtons = range(totalPage - 4, totalPage + 1);
+  }
+
   const onClickPage = page => {
     changePage(page);
   };
+
   return (
     <div className={styles.wrap}>
       <div>
