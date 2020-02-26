@@ -1,0 +1,9 @@
+:local(.PositionSelect) {
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+}
+
+:local(.PositionSelect span) {
+  padding-right: 5px;
+}
