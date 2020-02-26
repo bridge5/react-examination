@@ -1,41 +1,48 @@
-import * as types from '../constants/ActionTypes';
+/*
+ * @author: Vision
+ * @Date: 2020-02-26 09:52:06
+ * @LastEditors: vision
+ * @LastEditTime: 2020-02-26 16:28:37
+ */
+import * as types from "../constants/ActionTypes";
 
 const initialState = {
+  positionVisible: false,
   playersById: [
     {
-      name: 'LeBron James',
-      team: 'LOS ANGELES LAKERS',
-      position: 'SF',
+      name: "LeBron James",
+      team: "LOS ANGELES LAKERS",
+      position: "SF",
       starred: true,
     },
     {
-      name: 'Kevin Duran',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'SF',
+      name: "Kevin Duran",
+      team: "GOLDEN STATE WARRIORS",
+      position: "SF",
       starred: false,
     },
     {
-      name: 'Anthony Davis',
-      team: 'NEW ORLEANS PELICANS',
-      position: 'PF',
+      name: "Anthony Davis",
+      team: "NEW ORLEANS PELICANS",
+      position: "PF",
       starred: false,
     },
     {
-      name: 'Stephen Curry',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'PG',
+      name: "Stephen Curry",
+      team: "GOLDEN STATE WARRIORS",
+      position: "PG",
       starred: false,
     },
     {
-      name: 'James Harden',
-      team: 'HOUSTON ROCKETS',
-      position: 'SG',
+      name: "James Harden",
+      team: "HOUSTON ROCKETS",
+      position: "SG",
       starred: false,
     },
     {
-      name: 'Kawhi Leonard',
-      team: 'TORONTO RAPTORS',
-      position: 'SF',
+      name: "Kawhi Leonard",
+      team: "TORONTO RAPTORS",
+      position: "SF",
       starred: false,
     },
   ],
@@ -50,8 +57,8 @@ export default function players(state = initialState, action) {
           ...state.playersById,
           {
             name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            team: "LOS ANGELES LAKERS",
+            position: "SF",
           },
         ],
       };
@@ -59,7 +66,7 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: state.playersById.filter(
-          (item, index) => index !== action.id,
+          (item, index) => index !== action.id
         ),
       };
     case types.STAR_PLAYER:
@@ -70,7 +77,11 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
+    case types.CHANGE_POSITION_VISIBLE:
+      return {
+        ...state,
+        positionVisible: !state.positionVisible,
+      };
     default:
       return state;
   }

@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+/*
+ * @author: Vision
+ * @Date: 2020-02-26 09:52:06
+ * @LastEditors: vision
+ * @LastEditTime: 2020-02-26 16:32:07
+ */
+import React, { Component } from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import styles from "./PlayerListItem.css";
 
 class PlayerListItem extends Component {
   render() {
@@ -13,7 +19,9 @@ class PlayerListItem extends Component {
           </div>
           <div>
             <small>
-              {this.props.team} · {this.props.position}
+              {this.props.positionVisible
+                ? `${this.props.team} · ${this.props.position}`
+                : this.props.team}
             </small>
           </div>
         </div>
@@ -23,9 +31,9 @@ class PlayerListItem extends Component {
             onClick={() => this.props.starPlayer(this.props.id)}
           >
             <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
+              className={classnames("fa", {
+                "fa-star": this.props.starred,
+                "fa-star-o": !this.props.starred,
               })}
             />
           </button>
