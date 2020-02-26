@@ -2,3 +2,23 @@
   padding-left: 0;
   margin-bottom: 0;
 }
+
+:local(.pagination) {
+  background-color: #fff;
+  padding-top: 12px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+:local(.pagination)::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+:local(.pagination > ul) {
+  float: right;
+  margin-right: 18px;
+}
+
+
