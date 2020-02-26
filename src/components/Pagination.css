@@ -1,0 +1,49 @@
+:local(.pagination) {
+  background-color: #fff;
+  white-space: nowrap;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+:local(.btn-prev),
+:local(.btn-next),
+:local(.pagination li){
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #d1dbe5;
+  margin: 0;
+  padding: 0 4px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+}
+
+:local(.pagination li){
+  box-sizing: border-box;
+  border-right: 0;
+  list-style: none;
+}
+:local(.pagination li):hover {
+  color: #5c75b0;
+}
+
+:local(.pagers) {
+  display: inline-block;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+:local(.pagination .active) {
+  border-color: #5c75b0;
+  background-color: #5c75b0;
+  color: #fff;
+  cursor: default;
+}
+
+:local(.disabled) {
+  color: #e4e4e4;
+  cursor: not-allowed;
+}
