@@ -2,7 +2,11 @@
 
 Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
 
-## Steps
+## 步骤 Steps
+
+- 第一步：克隆这个仓库到你自己的账号里。
+- 第二步：完成下列任务。
+- 第三步：发送 Pull Request 到仓库 *bridge5/react-examination*。
 
 - Step1: clone this repository to your account.
 - Step2: finish the following tasks.
@@ -19,11 +23,3 @@ Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
 
 - Please check for small things like syntax errors, since details matter.
 - Please deliver something that works, non working project is an automatic disqualification.
-
----
-
-## 步骤
-
-- 第一步：克隆这个仓库到你自己的账号里。
-- 第二步：完成下列任务。
-- 第三步：发送 Pull Request 到仓库 *bridge5/react-examination*。
