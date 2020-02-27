@@ -2,15 +2,9 @@
  * @author: Vision
  * @Date: 2020-02-26 09:52:06
  * @LastEditors: vision
- * @LastEditTime: 2020-02-26 16:31:07
+ * @LastEditTime: 2020-02-27 13:39:07
  */
-/**
- * @DESC 待改写。
- * @author: Vision
- * @Date: 2020-02-26 09:52:06
- * @LastEditors: vision
- * @LastEditTime: 2020-02-26 10:01:50
- */
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./PlayerList.css";
@@ -45,7 +39,7 @@ class PlayerList extends Component {
 
   render() {
     const { current, pageSize } = this.state;
-    const { players, actions,positionVisible } = this.props;
+    const { players, actions } = this.props;
     const isPagination = players.length > 5;
 
     if (!isPagination) {
@@ -58,7 +52,6 @@ class PlayerList extends Component {
               name={player.name}
               team={player.team}
               position={player.position}
-              positionVisible={positionVisible}
               starred={player.starred}
               {...actions}
             />
@@ -79,7 +72,6 @@ class PlayerList extends Component {
               name={player.name}
               team={player.team}
               position={player.position}
-              positionVisible={positionVisible}
               starred={player.starred}
               {...actions}
             />

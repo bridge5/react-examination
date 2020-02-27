@@ -2,12 +2,11 @@
  * @author: Vision
  * @Date: 2020-02-26 09:52:06
  * @LastEditors: vision
- * @LastEditTime: 2020-02-26 16:28:37
+ * @LastEditTime: 2020-02-27 14:04:44
  */
 import * as types from "../constants/ActionTypes";
 
 const initialState = {
-  positionVisible: false,
   playersById: [
     {
       name: "LeBron James",
@@ -78,9 +77,12 @@ export default function players(state = initialState, action) {
         playersById: players,
       };
     case types.CHANGE_POSITION_VISIBLE:
+      const filterPlayers = state.playersById.filter(
+        item => item.position === action.value
+      );
       return {
         ...state,
-        positionVisible: !state.positionVisible,
+        filterPlayers: filterPlayers.length > 0 && action !== 'ALL' ? filterPlayers : null,
       };
     default:
       return state;

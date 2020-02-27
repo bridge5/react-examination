@@ -18,11 +18,7 @@ class PlayerListItem extends Component {
             <span>{this.props.name}</span>
           </div>
           <div>
-            <small>
-              {this.props.positionVisible
-                ? `${this.props.team} · ${this.props.position}`
-                : this.props.team}
-            </small>
+            <small>{`${this.props.team} · ${this.props.position}`}</small>
           </div>
         </div>
         <div className={styles.playerActions}>

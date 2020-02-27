@@ -2,7 +2,7 @@
  * @author: Vision
  * @Date: 2020-02-26 09:52:06
  * @LastEditors: vision
- * @LastEditTime: 2020-02-26 16:29:12
+ * @LastEditTime: 2020-02-27 13:29:35
  */
 import * as types from "../constants/ActionTypes";
 
@@ -27,8 +27,9 @@ export function starPlayer(id) {
   };
 }
 
-export function changeShowPosition() {
+export function changeShowPosition(value) {
   return {
     type: types.CHANGE_POSITION_VISIBLE,
+    value
   };
 }
