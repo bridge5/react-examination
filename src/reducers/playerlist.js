@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes';
+import { options } from '../constants/Options';
 
 const initialState = {
   playersById: [
@@ -39,6 +40,7 @@ const initialState = {
       starred: false,
     },
   ],
+  pageNum: 1
 };
 
 export default function players(state = initialState, action) {
@@ -50,8 +52,8 @@ export default function players(state = initialState, action) {
           ...state.playersById,
           {
             name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            team: action.team,
+            position: action.position,
           },
         ],
       };
@@ -70,6 +72,30 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+    case types.NEXT_PAGE:
+      if(state.pageNum === Math.ceil(state.playersById.length / options.maxPageItem)) {
+        return state;
+      }
+      return {
+        ...state,
+        pageNum: state.pageNum + 1
+      }
+    case types.PREV_PAGE:
+      if(state.pageNum === 1) {
+        return state;
+      }
+      return {
+        ...state,
+        pageNum: state.pageNum - 1
+      }
+    case types.GO_PAGE:
+      if(state.pageNum === action.pageNum) {
+        return state;
+      }
+      return {
+        ...state,
+        pageNum: action.pageNum
+      }
 
     default:
       return state;

@@ -1,9 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
-export function addPlayer(name) {
+export function addPlayer(payload) {
   return {
     type: types.ADD_PLAYER,
-    name,
+    ...payload
   };
 }
 
