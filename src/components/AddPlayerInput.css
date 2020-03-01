@@ -4,3 +4,15 @@
   border-left: 0;
   border-right: 0;
 }
+
+.add_player_input{
+  overflow: hidden;
+  width: 400px;
+}
+.form-control{
+  width: 200px;
+  display: inline-block;
+}
+button{
+  display: inline-block;
+}
