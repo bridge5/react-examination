@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
-import { PlayerList, AddPlayerInput } from '../../components';
+import {
+  PlayerList,
+  AddPlayerInput,
+  PlayerPositionFilter
+} from '../../components';
 
 const PlayerListApp = ({ playersById }) => {
-  const { playerListApp } = styles;
-
+  const [position, setPosition] = useState('ALL');
+  const { playerListApp, playerListTitle } = styles;
+  const players =
+    position === 'ALL'
+      ? playersById
+      : playersById.filter(player => player.position === position);
   return (
     <div className={playerListApp}>
-      <h1>NBA Players</h1>
+      <div className={playerListTitle}>
+        <h1>NBA Players</h1>
+        <PlayerPositionFilter setPosition={setPosition} />
+      </div>
       <AddPlayerInput />
-      <PlayerList players={playersById} />
+      <PlayerList players={players} />
     </div>
   );
 };
