@@ -20,3 +20,9 @@ export function starPlayer(id) {
     id,
   };
 }
+export const jumpPage=(pageNum)=>{
+  return {
+    type: types.JUMP_PAGE,
+    pageNum,
+  };
+}
