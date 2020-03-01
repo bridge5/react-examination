@@ -4,3 +4,7 @@
   border-left: 0;
   border-right: 0;
 }
+.addPlayerInputBox {
+  display: flex;
+  width: 500px;
+}

@@ -5,9 +5,10 @@ import PlayerListItem from './PlayerListItem';
 
 class PlayerList extends Component {
   render() {
+    const { players = [] } = this.props;
     return (
       <ul className={styles.playerList}>
-        {this.props.players.map((player, index) => {
+        {players.map((player, index) => {
           return (
             <PlayerListItem
               key={index}

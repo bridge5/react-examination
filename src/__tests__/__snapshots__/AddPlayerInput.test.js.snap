@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPlayerInput renders correctly 1`] = `
+<div
+  className="addPlayerInputBox"
+>
+  <input
+    autoFocus={true}
+    className="form-control"
+    name="name"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Type the name of a player"
+    type="text"
+    value=""
+  />
+  <select
+    className="form-control"
+    name="position"
+    onChange={[Function]}
+    value="SF"
+  >
+    　
+    <option
+      value="SF"
+    >
+      SF
+    </option>
+    　
+    <option
+      value="PG"
+    >
+      PG
+    </option>
+  </select>
+  <input
+    onClick={[Function]}
+    type="submit"
+    value="add"
+  />
+</div>
+`;
