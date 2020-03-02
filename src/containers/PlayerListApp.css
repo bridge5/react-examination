@@ -33,3 +33,8 @@ body {
 #react-paginate li {
   display: inline-block;
 }
+.filterBox {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
