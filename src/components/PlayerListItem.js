@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './PlayerListItem.css';
+import Position from '@/components/Position';
 
 class PlayerListItem extends Component {
   render() {
@@ -12,7 +13,7 @@ class PlayerListItem extends Component {
             <span>{this.props.name}</span>
           </div>
           <div>
-            <small>
+            <small className="small">
               {this.props.team} · {this.props.position}
             </small>
           </div>
@@ -35,6 +36,7 @@ class PlayerListItem extends Component {
           >
             <i className="fa fa-trash" />
           </button>
+          <Position changePosition={(value) => this.props.changePosition(value, this.props.id)} ></Position>
         </div>
       </li>
     );

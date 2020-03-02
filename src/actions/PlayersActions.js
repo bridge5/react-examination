@@ -26,3 +26,10 @@ export const jumpPage=(pageNum)=>{
     pageNum,
   };
 }
+export const changePosition=(position,id)=>{
+  return {
+    type: types.CHAGNE_POSITION,
+    position,
+    id,
+  };
+}

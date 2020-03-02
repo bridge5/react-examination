@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
-import { addPlayer, deletePlayer, starPlayer, jumpPage } from '../actions/PlayersActions';
-import { PlayerList, AddPlayerInput,Pagination } from '../components';
+import { addPlayer, deletePlayer, starPlayer, jumpPage,changePosition } from '../actions/PlayersActions';
+import { PlayerList, AddPlayerInput,Pagination } from '@/components';
 
 class PlayerListApp extends Component {
   render() {
@@ -15,6 +15,7 @@ class PlayerListApp extends Component {
       addPlayer: this.props.addPlayer,
       deletePlayer: this.props.deletePlayer,
       starPlayer: this.props.starPlayer,
+      changePosition: this.props.changePosition,
     };
     const total = Math.ceil(playersById.length / pageSize)
     return (
@@ -39,5 +40,6 @@ export default connect(
     deletePlayer,
     starPlayer,
     jumpPage,
+    changePosition
   },
 )(PlayerListApp);

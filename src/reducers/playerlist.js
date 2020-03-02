@@ -94,7 +94,15 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: [...state.playersById],
-        pageNum:action.pageNum
+        pageNum: action.pageNum
+      };
+    case types.CHAGNE_POSITION:
+      let members = [...state.playersById];
+      let member = members.find((item, index) => index === action.id);
+      member.position =action.position
+      return {
+        ...state,
+        playersById: members,
       };
     default:
       return state;
