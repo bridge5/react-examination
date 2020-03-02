@@ -25,7 +25,7 @@ class PlayerListItem extends Component {
             <i
               className={classnames('fa', {
                 'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
+                'fa-star-o': !this.props.starred
               })}
             />
           </button>
@@ -33,7 +33,7 @@ class PlayerListItem extends Component {
             className={`btn btn-default ${styles.btnAction}`}
             onClick={() => this.props.deletePlayer(this.props.id)}
           >
-            <i className="fa fa-trash" />
+            <i className='fa fa-trash' />
           </button>
         </div>
       </li>
@@ -47,7 +47,7 @@ PlayerListItem.propTypes = {
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   starred: PropTypes.bool,
-  starPlayer: PropTypes.func.isRequired,
+  starPlayer: PropTypes.func.isRequired
 };
 
 export default PlayerListItem;
