@@ -1,5 +1,5 @@
 import React from 'react';
-import './PlayerPositionFilter.css';
+import './PlayerPositionFilter.scss';
 const positions = ['ALL', 'SF', 'PG'];
 const PlayerPositionFilter = ({ setPosition }) => {
   return (

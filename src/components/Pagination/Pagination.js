@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Pagination.css';
+import styles from './Pagination.scss';
 const { pageContainer } = styles;
 export default ({ currentPageIndex, changePage, totalPageIndex }) => {
   return (
