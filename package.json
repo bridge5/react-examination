@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
+    "test": "mocha --require @babel/register ./src/test/button.spec.js",
     "eject": "react-app-rewired eject"
   },
   "dependencies": {
@@ -21,7 +21,16 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "react-scripts": "3.4.0"
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.6",
+    "chai": "^4.2.0",
+    "chai-spies": "^1.0.0",
+    "jsdom": "^16.2.0",
+    "mocha": "^7.1.0",
+    "react-scripts": "3.4.0",
+    "react-test-renderer": "^16.13.0"
   },
   "browserslist": [
     ">0.2%",
