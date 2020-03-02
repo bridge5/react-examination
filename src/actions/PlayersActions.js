@@ -20,3 +20,16 @@ export function starPlayer(id) {
     id,
   };
 }
+export const jumpPage=(pageNum)=>{
+  return {
+    type: types.JUMP_PAGE,
+    pageNum,
+  };
+}
+export const changePosition=(position,id)=>{
+  return {
+    type: types.CHAGNE_POSITION,
+    position,
+    id,
+  };
+}

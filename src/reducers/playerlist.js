@@ -3,42 +3,62 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   playersById: [
     {
-      name: 'LeBron James',
+      name: 'LeBron James1',
       team: 'LOS ANGELES LAKERS',
       position: 'SF',
       starred: true,
     },
     {
-      name: 'Kevin Duran',
+      name: 'Kevin Duran2',
       team: 'GOLDEN STATE WARRIORS',
       position: 'SF',
       starred: false,
     },
     {
-      name: 'Anthony Davis',
+      name: 'Anthony Davis3',
       team: 'NEW ORLEANS PELICANS',
       position: 'PF',
       starred: false,
     },
     {
-      name: 'Stephen Curry',
+      name: 'Stephen Curry4',
       team: 'GOLDEN STATE WARRIORS',
       position: 'PG',
       starred: false,
     },
     {
-      name: 'James Harden',
+      name: 'James Harden5',
       team: 'HOUSTON ROCKETS',
       position: 'SG',
       starred: false,
     },
     {
-      name: 'Kawhi Leonard',
+      name: 'Kawhi Leonard6',
       team: 'TORONTO RAPTORS',
       position: 'SF',
       starred: false,
     },
+    {
+      name: 'Kawhi Leonard7',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },
+    {
+      name: 'Kawhi Leonard8',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },
+    {
+      name: 'Kawhi Leonard9',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: true,
+    },
   ],
+  pageNum: 1,
+  pageSize: 5,
 };
 
 export default function players(state = initialState, action) {
@@ -70,7 +90,20 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
+    case types.JUMP_PAGE:
+      return {
+        ...state,
+        playersById: [...state.playersById],
+        pageNum: action.pageNum
+      };
+    case types.CHAGNE_POSITION:
+      let members = [...state.playersById];
+      let member = members.find((item, index) => index === action.id);
+      member.position =action.position
+      return {
+        ...state,
+        playersById: members,
+      };
     default:
       return state;
   }

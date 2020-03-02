@@ -9,6 +9,10 @@
 :local(.playerInfos) {
   flex: 1 0 auto;
 }
+.small{
+  display: flex;
+  align-items: center;
+}
 
 :local(.playerInfos span) {
   font-weight: bold;
