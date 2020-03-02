@@ -41,6 +41,7 @@ const initialState = {
   ],
 };
 
+
 export default function players(state = initialState, action) {
   switch (action.type) {
     case types.ADD_PLAYER:
@@ -51,7 +52,7 @@ export default function players(state = initialState, action) {
           {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            position: action.position,
           },
         ],
       };
