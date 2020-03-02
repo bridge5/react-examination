@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerPositionFilter feature render PlayerPositionFilter correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PlayerPositionFilter />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <li
+          className="breadcrumb-item"
+        >
+          <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            ALL
+          </button>
+        </li>,
+        <li
+          className="breadcrumb-item"
+        >
+          <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            SF
+          </button>
+        </li>,
+        <li
+          className="breadcrumb-item"
+        >
+          <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            PG
+          </button>
+        </li>,
+      ],
+      "className": "breadcrumb",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            ALL
+          </button>,
+          "className": "breadcrumb-item",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "ALL",
+            "className": "btn-link",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "ALL",
+          "type": "button",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            SF
+          </button>,
+          "className": "breadcrumb-item",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "SF",
+            "className": "btn-link",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "SF",
+          "type": "button",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": <button
+            className="btn-link"
+            onClick={[Function]}
+            type="button"
+          >
+            PG
+          </button>,
+          "className": "breadcrumb-item",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "PG",
+            "className": "btn-link",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "PG",
+          "type": "button",
+        },
+        "type": "li",
+      },
+    ],
+    "type": "ol",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <li
+            className="breadcrumb-item"
+          >
+            <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              ALL
+            </button>
+          </li>,
+          <li
+            className="breadcrumb-item"
+          >
+            <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              SF
+            </button>
+          </li>,
+          <li
+            className="breadcrumb-item"
+          >
+            <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              PG
+            </button>
+          </li>,
+        ],
+        "className": "breadcrumb",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              ALL
+            </button>,
+            "className": "breadcrumb-item",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "ALL",
+              "className": "btn-link",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": "ALL",
+            "type": "button",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              SF
+            </button>,
+            "className": "breadcrumb-item",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "SF",
+              "className": "btn-link",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": "SF",
+            "type": "button",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": <button
+              className="btn-link"
+              onClick={[Function]}
+              type="button"
+            >
+              PG
+            </button>,
+            "className": "breadcrumb-item",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "PG",
+              "className": "btn-link",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": "PG",
+            "type": "button",
+          },
+          "type": "li",
+        },
+      ],
+      "type": "ol",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+}
+`;
