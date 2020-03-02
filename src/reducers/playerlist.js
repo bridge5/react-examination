@@ -39,6 +39,8 @@ const initialState = {
       starred: false,
     },
   ],
+  pagingNum: 0,
+  filterVal: 'ALL'
 };
 
 export default function players(state = initialState, action) {
@@ -70,7 +72,10 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
+    case types.PAGIN_CHANGE: 
+      return { ...state, pagingNum: action.index }
+    case types.FILTER_PLAYER: 
+        return {...state, filterVal: action.value}
     default:
       return state;
   }

@@ -6,15 +6,22 @@ import styles from './AddPlayerInput.css';
 class AddPlayerInput extends Component {
   render() {
     return (
-      <input
-        type="text"
-        autoFocus={true}
-        className={classnames('form-control', styles.addPlayerInput)}
-        placeholder="Type the name of a player"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
-      />
+      <div> 
+        <input
+          type="text"
+          autoFocus={true}
+          className={classnames('form-control', styles.addPlayerInput)}
+          placeholder="Type the name of a player"
+          value={this.state.name}
+          onChange={this.handleChange.bind(this)}
+          onKeyDown={this.handleSubmit.bind(this)}
+        />
+        <select onChange={this.handleSelectChange.bind(this)} defaultValue="ALL" style={{width: '100%'}}>
+          <option value="ALL">ALL</option>
+          <option value="PG">PG</option>
+          <option value="SF">SF</option>
+        </select>
+      </div>
     );
   }
 
@@ -36,10 +43,15 @@ class AddPlayerInput extends Component {
       this.setState({ name: '' });
     }
   }
+
+  handleSelectChange(e) {
+    this.props.filterPlayer(e.target.value)
+  }
 }
 
 AddPlayerInput.propTypes = {
   addPlayer: PropTypes.func.isRequired,
+  filterPlayer: PropTypes.func.isRequired
 };
 
 export default AddPlayerInput;
