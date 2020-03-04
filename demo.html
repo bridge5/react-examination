@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main {
+        width: 300px;
+        margin: 100px auto;
+    }
+
+    button {
+        height: 20px;
+        width: 20px;
+        padding: 0;
+        line-height: 20px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="main">
+        <input type="text" id="add">
+        <ul id='list'>
+            <li>
+                <div>LeBron James</div>
+                <button>del</button>
+            </li>
+            <li>
+                <div>Kevin Duran</div>
+                <button>del</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function del() {
+            let li = this.parentNode
+            li.parentNode.removeChild(li)
+        }
+        let btns = document.getElementsByTagName('button')
+        for (let i in btns) {
+            btns[i].onclick = del
+        }
+        let add = document.getElementById('add')
+        // 给input添加回车键触发事件
+        add.onkeydown = function(e) {
+            let ev = document.all ? window.event : e
+            if (ev.keyCode == 13) {
+                // 获取input里面的内容
+                name = add.value
+                // 创建li
+                let li = document.createElement('li')
+                // 创建存放名字的div
+                let nameDiv = document.createElement('div')
+                // 创建删除按钮
+                let button = document.createElement('button')
+                // 创建文本节点
+                let nameText = document.createTextNode(name)
+                let btnText = document.createTextNode('del')
+                // 将input里面的内容添加到div中
+                nameDiv.appendChild(nameText)
+                // 将del添加到button中
+                button.appendChild(btnText)
+                // 将li的子元素添加到li中
+                li.appendChild(nameDiv)
+                li.appendChild(button)
+                // 为新加的button添加删除事件
+                button.onclick = del
+                let ul = document.getElementById('list')
+                // 将li添加到ul当中
+                ul.appendChild(li)
+
+            }
+        }
+    </script>
+</body>
+
+</html>
