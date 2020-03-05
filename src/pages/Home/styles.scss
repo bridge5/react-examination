@@ -1,0 +1,52 @@
+.floatWrapper {
+  > .rightFloat {
+    float: right;
+  }
+
+  > .leftFloat {
+    float: left;
+  }
+
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    margin: 0;
+    clear: both;
+    content: '';
+  }
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  .wrapper {
+    width: 400px;
+  }
+  .title {
+    margin: 15px 0 0;
+    text-align: center;
+  }
+}
+
+.popoverContentWrapper {
+  .popoverContent {
+    width: 320px;
+    > div {
+      margin-bottom: 10px;
+    }
+  }
+  .label {
+    line-height: 32px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
