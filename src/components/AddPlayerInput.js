@@ -9,7 +9,9 @@ class AddPlayerInput extends Component {
       <input
         type="text"
         autoFocus={true}
-        className={classnames('form-control', styles.addPlayerInput)}
+        className = {
+          classnames('input-normal w384 form-control', styles.addPlayerInput)
+        }
         placeholder="Type the name of a player"
         value={this.state.name}
         onChange={this.handleChange.bind(this)}

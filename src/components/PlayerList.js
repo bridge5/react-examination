@@ -6,7 +6,7 @@ import PlayerListItem from './PlayerListItem';
 class PlayerList extends Component {
   render() {
     return (
-      <ul className={styles.playerList}>
+      <div className="ptb16">
         {this.props.players.map((player, index) => {
           return (
             <PlayerListItem
@@ -20,7 +20,7 @@ class PlayerList extends Component {
             />
           );
         })}
-      </ul>
+      </div>
     );
   }
 }
