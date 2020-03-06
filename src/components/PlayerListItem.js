@@ -6,7 +6,7 @@ import styles from './PlayerListItem.css';
 class PlayerListItem extends Component {
   render() {
     return (
-      <li className={styles.playerListItem}>
+      <div className="ptb8 bor-b b-side d-f ac jc-b">
         <div className={styles.playerInfos}>
           <div>
             <span>{this.props.name}</span>
@@ -19,24 +19,22 @@ class PlayerListItem extends Component {
         </div>
         <div className={styles.playerActions}>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn-n plr8 ptb2 mr16 ${styles.btnAction}`}
             onClick={() => this.props.starPlayer(this.props.id)}
           >
-            <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
-              })}
-            />
+            <span className="pr4">collect</span>
+            {
+              this.props.starred ? '✓':""
+            }
           </button>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn-n bg-fail plr8 ptb2 ${styles.btnAction}`}
             onClick={() => this.props.deletePlayer(this.props.id)}
           >
-            <i className="fa fa-trash" />
+            delete
           </button>
         </div>
-      </li>
+      </div>
     );
   }
 }
