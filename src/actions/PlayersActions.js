@@ -20,3 +20,11 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function handleShow(id) {
+  console.log(id)
+  return {
+    type : types.HANDLE_SHOW,
+    id
+  }
+}
