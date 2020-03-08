@@ -1,44 +1,75 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
-const initialState = {
+export const initialState = {
   playersById: [
     {
-      name: 'LeBron James',
-      team: 'LOS ANGELES LAKERS',
-      position: 'SF',
-      starred: true,
+      name: "LeBron James",
+      team: "LOS ANGELES LAKERS",
+      position: "SF",
+      starred: true
     },
     {
-      name: 'Kevin Duran',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'SF',
-      starred: false,
+      name: "Kevin Duran",
+      team: "GOLDEN STATE WARRIORS",
+      position: "SF",
+      starred: false
     },
     {
-      name: 'Anthony Davis',
-      team: 'NEW ORLEANS PELICANS',
-      position: 'PF',
-      starred: false,
+      name: "Anthony Davis",
+      team: "NEW ORLEANS PELICANS",
+      position: "PF",
+      starred: false
     },
     {
-      name: 'Stephen Curry',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'PG',
-      starred: false,
+      name: "Stephen Curry",
+      team: "GOLDEN STATE WARRIORS",
+      position: "PG",
+      starred: false
     },
     {
-      name: 'James Harden',
-      team: 'HOUSTON ROCKETS',
-      position: 'SG',
-      starred: false,
+      name: "James Harden",
+      team: "HOUSTON ROCKETS",
+      position: "SG",
+      starred: false
     },
     {
-      name: 'Kawhi Leonard',
-      team: 'TORONTO RAPTORS',
-      position: 'SF',
-      starred: false,
+      name: "Kawhi Leonard",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
     },
+    {
+      name: "Kawhi Leonard2",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
+    },
+    {
+      name: "Kawhi Leonard3",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
+    },
+    {
+      name: "Kawhi Leonard4",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
+    },
+    {
+      name: "Kawhi Leonard5",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
+    },
+    {
+      name: "Kawhi Leonard66",
+      team: "TORONTO RAPTORS",
+      position: "SF",
+      starred: false
+    }
   ],
+  visible: "ALL"
 };
 
 export default function players(state = initialState, action) {
@@ -50,17 +81,17 @@ export default function players(state = initialState, action) {
           ...state.playersById,
           {
             name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
-          },
-        ],
+            team: "LOS ANGELES LAKERS",
+            position: "SF"
+          }
+        ]
       };
     case types.DELETE_PLAYER:
       return {
         ...state,
         playersById: state.playersById.filter(
-          (item, index) => index !== action.id,
-        ),
+          (item, index) => index !== action.id
+        )
       };
     case types.STAR_PLAYER:
       let players = [...state.playersById];
@@ -68,9 +99,13 @@ export default function players(state = initialState, action) {
       player.starred = !player.starred;
       return {
         ...state,
-        playersById: players,
+        playersById: players
       };
-
+    case types.HANDLE_SHOW:
+      return {
+        ...state,
+        visible: action.id
+      };
     default:
       return state;
   }
