@@ -39,6 +39,7 @@ const initialState = {
       starred: false,
     },
   ],
+  positionData: []
 };
 
 export default function players(state = initialState, action) {
@@ -69,6 +70,11 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: players,
+      };
+    case types.GET_POSITION:
+      return {
+        ...state,
+        positionData: action.positionData
       };
 
     default:

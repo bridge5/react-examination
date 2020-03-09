@@ -20,3 +20,13 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export const getPosition = () => (dispatch) => {
+  setTimeout(() => {
+    console.log(1)
+    dispatch({
+      type: types.GET_POSITION,
+      positionData: ['SF', 'PG']
+    })
+  }, 3000);
+}
