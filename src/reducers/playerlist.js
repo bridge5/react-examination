@@ -44,14 +44,15 @@ const initialState = {
 export default function players(state = initialState, action) {
   switch (action.type) {
     case types.ADD_PLAYER:
+
       return {
         ...state,
         playersById: [
           ...state.playersById,
           {
-            name: action.name,
+            name: action.name.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            position: action.name.position,
           },
         ],
       };
@@ -63,9 +64,11 @@ export default function players(state = initialState, action) {
         ),
       };
     case types.STAR_PLAYER:
+
       let players = [...state.playersById];
       let player = players.find((item, index) => index === action.id);
       player.starred = !player.starred;
+
       return {
         ...state,
         playersById: players,
