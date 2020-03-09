@@ -1,0 +1,11 @@
+.paginationDiv a{
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+.paginationDiv a.current{
+  color: red;
+  border: 1px solid red;
+}
+.paginationDiv a.disable{
+  background: #ccc;
+}
