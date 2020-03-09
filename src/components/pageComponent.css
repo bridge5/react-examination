@@ -1,0 +1,11 @@
+ul.my-page>li{
+    list-style: none;
+    display: inline-block;
+
+    padding: 5px 7px;
+    margin: 0 5px;
+}
+
+ul.my-page li button.active{
+    background: #367cff;
+}
