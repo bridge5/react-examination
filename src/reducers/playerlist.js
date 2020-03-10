@@ -3,13 +3,13 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   playersById: [
     {
-      name: 'LeBron James',
+      name: '1LeBron James',
       team: 'LOS ANGELES LAKERS',
       position: 'SF',
       starred: true,
     },
     {
-      name: 'Kevin Duran',
+      name: '2Kevin Duran',
       team: 'GOLDEN STATE WARRIORS',
       position: 'SF',
       starred: false,
@@ -38,6 +38,52 @@ const initialState = {
       position: 'SF',
       starred: false,
     },
+    {
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    }
   ],
 };
 
@@ -69,6 +115,10 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: players,
+      };
+    case types.CLEAR_DATA:
+      return {
+        playersById: {},
       };
 
     default:

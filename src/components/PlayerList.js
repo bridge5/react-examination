@@ -20,6 +20,8 @@ class PlayerList extends Component {
             />
           );
         })}
+
+        
       </ul>
     );
   }
