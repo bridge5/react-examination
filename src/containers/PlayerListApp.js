@@ -3,7 +3,7 @@ import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
 import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
-import { PlayerList, AddPlayerInput } from '../components';
+import { PlayerList, AddPlayerInput ,Pagination,Computer} from '../components';
 
 class PlayerListApp extends Component {
   render() {
@@ -21,7 +21,8 @@ class PlayerListApp extends Component {
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
         <AddPlayerInput addPlayer={actions.addPlayer} />
-        <PlayerList players={playersById} actions={actions} />
+        <PlayerList players={playersById} actions={actions} pagination={{total:playersById.length,page:0,size:5}}/>
+          <Computer/>
       </div>
     );
   }
