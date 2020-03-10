@@ -1,0 +1,26 @@
+ul,li{ padding:0;margin:0;list-style:none}
+.pagination{
+    float: left;
+}
+.paginationLi{
+    border: 1px solid #cccccc;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block !important;
+    text-align: center;
+    color: #666666;
+    cursor:pointer ;
+}
+.paginationLi.active{
+    border: 1px solid #2f45b0;
+    color: #2f45b0;
+}
+.clearfix{
+    *zoom:1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}

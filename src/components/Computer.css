@@ -1,0 +1,14 @@
+li{ list-style:none;}
+#ul1{ margin:20px auto; border:1px #FFF solid; border-bottom:none; border-right:none; overflow:hidden; background-image:url(./img/bg.jpg); background-size:cover;}
+#ul1 li{ float:left; border:1px #FFF solid; border-top:none; border-left:none; background-size:cover;}
+#ul1 li.active{ animation:0.5s linear infinite flash; -webkit-animation:0.5s linear infinite flash;}
+@keyframes flash{
+    0%{ opacity:0.1;}
+    50%{ opacity:1;}
+    100%{ opacity:0.1;}
+}
+@-webkit-keyframes flash{
+    0%{ opacity:0.1;}
+    50%{ opacity:1;}
+    100%{ opacity:0.1;}
+}
