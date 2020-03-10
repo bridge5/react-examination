@@ -43,7 +43,7 @@ class Computer extends Component {
         }
 
         run();
-        setInterval(run,100000000);
+        setInterval(run,1000);
 
         function run(){
 
