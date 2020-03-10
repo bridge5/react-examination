@@ -20,3 +20,9 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function clearData() {
+  return {
+    type: types.CLEAR_DATA,
+  };
+}
