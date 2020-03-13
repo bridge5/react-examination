@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
-import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
+import { addPlayer, deletePlayer, starPlayer, changePosition } from '../actions/PlayersActions';
 import { PlayerList, AddPlayerInput } from '../components';
 
 class PlayerListApp extends Component {
@@ -15,8 +15,10 @@ class PlayerListApp extends Component {
       addPlayer: this.props.addPlayer,
       deletePlayer: this.props.deletePlayer,
       starPlayer: this.props.starPlayer,
+	  changePosition:this.props.changePosition,
+	  
     };
-
+	console.log(actions)
     return (
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
@@ -37,5 +39,6 @@ export default connect(
     addPlayer,
     deletePlayer,
     starPlayer,
+	changePosition
   },
 )(PlayerListApp);

@@ -20,3 +20,11 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function changePosition({id,position}){
+	
+	return {
+		type:'change_position',
+		data:{id,position},
+	};
+}

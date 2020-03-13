@@ -70,6 +70,21 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+	case 'change_position':
+	  return {
+		  ...state,
+		  playersById: state.playersById.map(
+		    (item, index) =>{
+				if(index !== action.data.id)
+				return item
+				else{
+					var newitem=item
+					newitem.position=action.data.position
+					return newitem
+				}  
+				}
+		  ),
+	  }
 
     default:
       return state;
