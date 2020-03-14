@@ -1,0 +1,66 @@
+.pagination-wrapper {
+  border-top: 1px solid #f2f2f5;
+  margin-top: 20px;
+  ul {
+      height: 26px;
+      padding: 4px 0;
+      line-height: 26px;
+      text-align: center;
+      li {
+          display: inline-block;
+          a {
+              display: inline-block;
+              color: #333;
+          }
+          &.page-pre,
+          &.page-after {
+              width: 100px;
+              a {
+                  cursor: pointer;
+                  padding: 0 10px;
+                  &.off {
+                      cursor: default;
+                      color: #aaa;
+                  }
+                  &:hover {
+                      background: #f2f2f5;
+                      &.off {
+                          background: none;
+                      }
+                  }
+              }
+          }
+          &.page-count {
+              box-sizing: border-box;
+              border-left: 1px solid #f2f2f5;
+              border-right: 1px solid #f2f2f5;
+              border-left: 1px solid #d9d9d9;
+              border-right: 1px solid #d9d9d9;
+              line-height: 100%;
+              a {
+                  padding: 0 7px;
+                  height: 20px;
+                  line-height: 20px;
+                  margin: 0 8px;
+                  border-radius: 2px;
+                  &.on {
+                    //   background: #f2f2f5;
+                    background-color: #FFF;
+                      font-size: 20px;
+                  }
+                  &:hover {
+                      background: #f2f2f5;
+                      cursor: pointer;
+                      &.disable {
+                          background: none;
+                          cursor: default;
+                      }
+                  }
+              }
+              &.alone {
+                  border: none;
+              }
+          }
+      }
+  }
+}

@@ -42,6 +42,7 @@ const initialState = {
 };
 
 export default function players(state = initialState, action) {
+  console.log(action)
   switch (action.type) {
     case types.ADD_PLAYER:
       return {
@@ -51,11 +52,12 @@ export default function players(state = initialState, action) {
           {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            position: action.position,
           },
         ],
       };
     case types.DELETE_PLAYER:
+      console.log(action)
       return {
         ...state,
         playersById: state.playersById.filter(
