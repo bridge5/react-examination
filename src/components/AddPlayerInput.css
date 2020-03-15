@@ -1,6 +1,16 @@
+.select-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
 :local(.addPlayerInput) {
+  width: 100%;
   border-radius: 0;
   border-color: #abaaaa;
   border-left: 0;
+  margin-bottom: 10px;
   border-right: 0;
 }
+
