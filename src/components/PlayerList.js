@@ -16,6 +16,7 @@ class PlayerList extends Component {
               team={player.team}
               position={player.position}
               starred={player.starred}
+              current={player.current}
               {...this.props.actions}
             />
           );

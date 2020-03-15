@@ -6,7 +6,7 @@ import styles from './PlayerListItem.css';
 class PlayerListItem extends Component {
   render() {
     return (
-      <li className={styles.playerListItem}>
+      <li className={styles.playerListItem} style={{display: this.props.current ? 'block' : 'none'}}>
         <div className={styles.playerInfos}>
           <div>
             <span>{this.props.name}</span>
@@ -47,6 +47,7 @@ PlayerListItem.propTypes = {
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   starred: PropTypes.bool,
+  current: PropTypes.bool,
   starPlayer: PropTypes.func.isRequired,
 };
 
