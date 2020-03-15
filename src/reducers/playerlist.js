@@ -52,6 +52,7 @@ export default function players(state = initialState, action) {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
             position: 'SF',
+            starred: false
           },
         ],
       };
@@ -69,6 +70,14 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: players,
+      };
+    case types.POSITION_PLAYER:
+      let posPlayers = [...state.playersById];
+      let posPlayer = posPlayers.find((item, index) => index === action.datas.id);
+      posPlayer.position = action.datas.position;
+      return {
+        ...state,
+        playersById: posPlayers,
       };
 
     default:
