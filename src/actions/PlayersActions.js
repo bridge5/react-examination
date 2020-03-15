@@ -20,3 +20,17 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function positionPlayer(datas) {
+  return {
+    type: types.POSITION_PLAYER,
+    datas,
+  };
+}
+
+export function setCurrentPage(page) {
+  return {
+    type: types.CURRENT_PAGE,
+    page,
+  };
+}
