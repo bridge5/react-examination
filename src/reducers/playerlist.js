@@ -1,6 +1,8 @@
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants/ActionTypes'; 
 
 const initialState = {
+  currentPage: 1,
+  onlySF_PG: false,
   playersById: [
     {
       name: 'LeBron James',
@@ -70,7 +72,24 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
+    case types.NEXT_PAGE: 
+      let pages = Math.ceil(state.playersById.length / 5);
+      let current = state.currentPage;
+      return {
+        ...state,
+        currentPage: current === pages ? current : current + 1
+      };
+    case types.PRE_PAGE: 
+      let current = state.currentPage;
+      return {
+        ...state,
+        currentPage: current === 1 ? 1 : current - 1
+      };
+    case types.TOGGLE_SF_PG:
+      return {
+        ...state,
+        onlySF_PG: !state.onlySF_PG
+      }
     default:
       return state;
   }
