@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
-import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
+import { addPlayer, deletePlayer, starPlayer,selectedPlay } from '../actions/PlayersActions';
 import { PlayerList, AddPlayerInput } from '../components';
 
 class PlayerListApp extends Component {
@@ -15,6 +15,7 @@ class PlayerListApp extends Component {
       addPlayer: this.props.addPlayer,
       deletePlayer: this.props.deletePlayer,
       starPlayer: this.props.starPlayer,
+      selectedPlay:this.props.selectedPlay,
     };
 
     return (
@@ -37,5 +38,6 @@ export default connect(
     addPlayer,
     deletePlayer,
     starPlayer,
+    selectedPlay,
   },
 )(PlayerListApp);

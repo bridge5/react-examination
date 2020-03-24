@@ -29,3 +29,7 @@
 button:focus {
   outline: 0 !important;
 }
+
+.selectPlay {
+height: 34px;
+}

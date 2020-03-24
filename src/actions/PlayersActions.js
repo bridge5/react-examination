@@ -20,3 +20,12 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function selectedPlay(id,selected) {
+
+  return {
+    type: types.SELECT_PLAYER,
+    id,
+    selected,
+  };
+}

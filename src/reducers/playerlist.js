@@ -70,7 +70,15 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+      case types.SELECT_PLAYER:
+        let Arr = [...state.playersById];
+        let getItem = Arr.find((item, index) => index === action.id);
+        getItem.position = action.selected;
 
+        return {
+          ...state,
+          playersById: Arr,
+        };
     default:
       return state;
   }
