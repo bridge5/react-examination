@@ -12,13 +12,24 @@
     "classnames": "^2.2.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
+    "ramda": "^0.27.0",
+    "rc-pagination": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.4",
+    "rxjs-compat": "^6.5.4"
   },
   "devDependencies": {
     "react-scripts": "3.4.0"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

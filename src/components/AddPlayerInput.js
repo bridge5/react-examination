@@ -4,19 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './AddPlayerInput.css';
 
 class AddPlayerInput extends Component {
-  render() {
-    return (
-      <input
-        type="text"
-        autoFocus={true}
-        className={classnames('form-control', styles.addPlayerInput)}
-        placeholder="Type the name of a player"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
-      />
-    );
-  }
 
   constructor(props, context) {
     super(props, context);
@@ -36,6 +23,20 @@ class AddPlayerInput extends Component {
       this.setState({ name: '' });
     }
   }
+  render() {
+    return (
+      <input
+        type="text"
+        autoFocus={true}
+        className={classnames('form-control', styles.addPlayerInput)}
+        placeholder="Type the name of a player"
+        value={this.state.name}
+        onChange={this.handleChange.bind(this)}
+        onKeyDown={this.handleSubmit.bind(this)}
+      />
+    );
+  }
+
 }
 
 AddPlayerInput.propTypes = {
