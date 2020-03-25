@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import 'antd/dist/antd.css';
 import PlayerListApp from './PlayerListApp';
 import * as reducers from '../reducers';
 

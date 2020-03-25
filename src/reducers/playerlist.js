@@ -59,12 +59,12 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: state.playersById.filter(
-          (item, index) => index !== action.id,
+          (item, index) => item.name+item.team !== action.id,
         ),
       };
     case types.STAR_PLAYER:
       let players = [...state.playersById];
-      let player = players.find((item, index) => index === action.id);
+      let player = players.find((item, index) => item.name+item.team === action.id);
       player.starred = !player.starred;
       return {
         ...state,
