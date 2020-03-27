@@ -4,6 +4,16 @@ import PropTypes from 'prop-types';
 import styles from './PlayerListItem.css';
 
 class PlayerListItem extends Component {
+	
+	state={position:this.props.position}
+	
+	handleChange=(event)=>{
+		event.persist()
+		this.setState({position:event.target.value})
+		setTimeout(()=>this.props.changePosition({id:this.props.id,position:this.state.position}))
+		
+	}
+	
   render() {
     return (
       <li className={styles.playerListItem}>
@@ -36,6 +46,15 @@ class PlayerListItem extends Component {
             <i className="fa fa-trash" />
           </button>
         </div>
+		<div>
+			<select value={this.state.position} onChange={this.handleChange}>
+				<option value='SF'>SF</option>
+				<option value='PF'>PF</option>
+				<option value='PG'>PG</option>
+				<option value='SG'>SG</option>
+			</select>
+		</div>
+		
       </li>
     );
   }
