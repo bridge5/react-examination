@@ -4,6 +4,11 @@
   background-color: white;
   border-bottom: 1px solid #e3e3e3;
   display: flex;
+  transition: all .3s ease;
+}
+
+:local(.playerListItem):hover {
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.2);
 }
 
 :local(.playerInfos) {

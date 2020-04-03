@@ -41,18 +41,26 @@ const initialState = {
   ],
 };
 
+const teamList = [
+  'LOS ANGELES LAKERS',
+  'NEW ORLEANS PELICANS',
+  'TORONTO RAPTORS',
+  'HOUSTON ROCKETS',
+  'GOLDEN STATE WARRIORS'
+]
+
 export default function players(state = initialState, action) {
   switch (action.type) {
     case types.ADD_PLAYER:
       return {
         ...state,
         playersById: [
-          ...state.playersById,
           {
-            name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            name: action.payload.name,
+            team: teamList[Math.floor(Math.random() * teamList.length)],
+            position: action.payload.position,
           },
+          ...state.playersById,
         ],
       };
     case types.DELETE_PLAYER:
@@ -70,7 +78,6 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
     default:
       return state;
   }

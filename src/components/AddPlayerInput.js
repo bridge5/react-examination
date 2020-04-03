@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './AddPlayerInput.css';
+import styles from './AddPlayerInput.module.css';
 
 class AddPlayerInput extends Component {
   render() {

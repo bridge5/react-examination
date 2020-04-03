@@ -11,11 +11,9 @@ const store = createStore(reducer);
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <Provider store={store}>
-          <PlayerListApp />
-        </Provider>
-      </div>
+      <Provider store={store}>
+        <PlayerListApp />
+      </Provider>
     );
   }
 }
