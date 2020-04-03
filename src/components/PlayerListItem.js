@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+import styles from './PlayerListItem.module.css';
 
 class PlayerListItem extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.starred !== this.props.starred ||
+      nextProps.name !== this.props.name ||
+      nextProps.team !== this.props.team ||
+      nextProps.position !== this.props.position ||
+      nextProps.page !== this.props.page
+  }
+
   render() {
     return (
       <li className={styles.playerListItem}>
@@ -48,6 +56,7 @@ PlayerListItem.propTypes = {
   position: PropTypes.string.isRequired,
   starred: PropTypes.bool,
   starPlayer: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export default PlayerListItem;

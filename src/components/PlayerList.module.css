@@ -1,0 +1,11 @@
+:local(.playerList) {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+:local(.noData) {
+  background: #fff;
+  padding: 20px;
+  min-height: 420px;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
