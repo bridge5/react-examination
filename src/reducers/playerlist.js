@@ -49,9 +49,8 @@ export default function players(state = initialState, action) {
         playersById: [
           ...state.playersById,
           {
-            name: action.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            ...action.info
           },
         ],
       };
@@ -63,6 +62,7 @@ export default function players(state = initialState, action) {
         ),
       };
     case types.STAR_PLAYER:
+      debugger
       let players = [...state.playersById];
       let player = players.find((item, index) => index === action.id);
       player.starred = !player.starred;
