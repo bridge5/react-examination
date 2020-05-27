@@ -1,0 +1,12 @@
+.pagination {
+  margin: 0;
+  
+}
+.pagination li {
+  padding: 4px 10px;
+  border: 1px solid aqua;
+  margin-right: 10px;
+}
+.pagination li.selected {
+  background-color: aqua;
+}
