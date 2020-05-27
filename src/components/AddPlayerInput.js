@@ -31,9 +31,11 @@ class AddPlayerInput extends Component {
 
   handleSubmit(e) {
     const name = e.target.value.trim();
+    if (!name) return
     if (e.which === 13) {
-      this.props.addPlayer(name);
-      this.setState({ name: '' });
+      this.setState({ name: '' }, () => {
+        this.props.onsubmit(name)
+      });
     }
   }
 }

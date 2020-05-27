@@ -11,7 +11,7 @@ class PlayerList extends Component {
           return (
             <PlayerListItem
               key={index}
-              id={index}
+              id={index + this.props.prevCounts}
               name={player.name}
               team={player.team}
               position={player.position}
