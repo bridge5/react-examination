@@ -20,3 +20,11 @@ export function starPlayer(id) {
     id,
   };
 }
+
+
+export function pageCurrentChangePlayer(currentPage) {
+  return {
+    type: types.PAGE_CURRENT_CHANGE_PLAYER,
+    currentPage,
+  };
+}

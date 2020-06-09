@@ -37,8 +37,39 @@ const initialState = {
       team: 'TORONTO RAPTORS',
       position: 'SF',
       starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
+    },{
+      name: 'Kawhi Leonard',
+      team: 'TORONTO RAPTORS',
+      position: 'SF',
+      starred: false,
     },
   ],
+  currentPage: 1
 };
 
 export default function players(state = initialState, action) {
@@ -55,6 +86,9 @@ export default function players(state = initialState, action) {
           },
         ],
       };
+    
+
+
     case types.DELETE_PLAYER:
       return {
         ...state,
@@ -62,6 +96,11 @@ export default function players(state = initialState, action) {
           (item, index) => index !== action.id,
         ),
       };
+    
+
+
+
+
     case types.STAR_PLAYER:
       let players = [...state.playersById];
       let player = players.find((item, index) => index === action.id);
@@ -70,6 +109,20 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
+
+
+
+    case types.PAGE_CURRENT_CHANGE_PLAYER:
+
+    let curPage = action.currentPage;
+
+    return {
+      ...state,
+      currentPage: curPage
+    };
+
+
+
 
     default:
       return state;
