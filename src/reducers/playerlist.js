@@ -113,8 +113,6 @@ export default function players(state = initialState, action) {
 
 
     case types.PAGE_CURRENT_CHANGE_PLAYER:
-    console.log(state);
-    console.log(action);
 
     let curPage = action.currentPage;
 
