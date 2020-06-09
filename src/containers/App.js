@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+
+import 'element-theme-default';
+
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 

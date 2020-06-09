@@ -10,15 +10,23 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "element-react": "^1.4.34",
+    "element-theme-default": "^1.4.13",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.21",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5"
   },
   "devDependencies": {
     "react-scripts": "3.4.0"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

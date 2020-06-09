@@ -21,7 +21,7 @@ class PlayerListItem extends Component {
           <button
             className={`btn btn-default ${styles.btnAction}`}
             onClick={() => this.props.starPlayer(this.props.id)}
-          >
+          >4
             <i
               className={classnames('fa', {
                 'fa-star': this.props.starred,
@@ -32,7 +32,7 @@ class PlayerListItem extends Component {
           <button
             className={`btn btn-default ${styles.btnAction}`}
             onClick={() => this.props.deletePlayer(this.props.id)}
-          >
+          > 5
             <i className="fa fa-trash" />
           </button>
         </div>
