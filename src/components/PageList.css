@@ -1,0 +1,24 @@
+.pageList{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+.pageBtnAction{
+    width: 20px;
+    height: 20px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+.active{
+    color: white;
+    background-color: #5c75b0;
+}
+.pageBtnAction:focus,
+.pageBtnAction:hover {
+    color: white;
+  background-color: #5c75b0;
+}
