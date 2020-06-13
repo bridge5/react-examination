@@ -1,6 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  curPageNumber: 0,
+  pageSize: 5,
+  positionList:[{'position':'SF'},{'position':'PG'}],
   playersById: [
     {
       name: 'LeBron James',
@@ -51,7 +54,7 @@ export default function players(state = initialState, action) {
           {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            position: state.positionList[action.optionId].position,
           },
         ],
       };
@@ -64,11 +67,16 @@ export default function players(state = initialState, action) {
       };
     case types.STAR_PLAYER:
       let players = [...state.playersById];
-      let player = players.find((item, index) => index === action.id);
+      let player = players.find((item, index) => index === action.id + state.curPageNumber * state.pageSize);
       player.starred = !player.starred;
       return {
         ...state,
         playersById: players,
+      };
+      case types.CHANGE_PAGE:
+      return {
+        ...state,
+        curPageNumber: action.curPageNumber,
       };
 
     default:

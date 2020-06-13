@@ -1,0 +1,6 @@
+.positionOption{
+    position: absolute;
+    display: inline-block;
+    height: 34px;
+    border-radius: 4px;
+}

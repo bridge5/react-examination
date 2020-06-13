@@ -1,9 +1,10 @@
 import * as types from '../constants/ActionTypes';
 
-export function addPlayer(name) {
+export function addPlayer(name,optionId) {
   return {
     type: types.ADD_PLAYER,
     name,
+    optionId,
   };
 }
 
@@ -18,5 +19,12 @@ export function starPlayer(id) {
   return {
     type: types.STAR_PLAYER,
     id,
+  };
+}
+
+export function changePage(curPageNumber) {
+  return {
+    type: types.CHANGE_PAGE,
+    curPageNumber,
   };
 }
