@@ -1,22 +1,30 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
-export function addPlayer(name) {
+export function addPlayer(name, optionId) {
   return {
     type: types.ADD_PLAYER,
     name,
+    optionId
   };
 }
 
 export function deletePlayer(id) {
   return {
     type: types.DELETE_PLAYER,
-    id,
+    id
   };
 }
 
 export function starPlayer(id) {
   return {
     type: types.STAR_PLAYER,
-    id,
+    id
+  };
+}
+
+export function changePage(current) {
+  return {
+    type: types.CHANGE_PAGE,
+    current
   };
 }

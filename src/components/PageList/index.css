@@ -1,0 +1,30 @@
+.pageList{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+.btnAction{
+    width: 20px;
+    height: 20px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+    border: 1px solid #5c75b0;
+  }
+.active{
+    color: white;
+    background-color: #5c75b0;
+}
+.btnAction:focus,
+.btnAction:hover {
+    color: white;
+  background-color: #5c75b0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './PlayerList.css';
-import PlayerListItem from './PlayerListItem';
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import styles from "./PlayerList.css";
+import PlayerListItem from "./PlayerListItem";
 
 class PlayerList extends Component {
   render() {
+    const { players, actions } = this.props;
     return (
       <ul className={styles.playerList}>
-        {this.props.players.map((player, index) => {
+        {players.map((player, index) => {
           return (
             <PlayerListItem
               key={index}
@@ -16,7 +19,7 @@ class PlayerList extends Component {
               team={player.team}
               position={player.position}
               starred={player.starred}
-              {...this.props.actions}
+              {...actions}
             />
           );
         })}
@@ -27,7 +30,7 @@ class PlayerList extends Component {
 
 PlayerList.propTypes = {
   players: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default PlayerList;

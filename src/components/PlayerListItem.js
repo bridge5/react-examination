@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import styles from "./PlayerListItem.css";
 
 class PlayerListItem extends Component {
   render() {
@@ -23,9 +27,9 @@ class PlayerListItem extends Component {
             onClick={() => this.props.starPlayer(this.props.id)}
           >
             <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
+              className={classnames("fa", {
+                "fa-star": this.props.starred,
+                "fa-star-o": !this.props.starred
               })}
             />
           </button>
@@ -47,7 +51,7 @@ PlayerListItem.propTypes = {
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   starred: PropTypes.bool,
-  starPlayer: PropTypes.func.isRequired,
+  starPlayer: PropTypes.func.isRequired
 };
 
 export default PlayerListItem;
