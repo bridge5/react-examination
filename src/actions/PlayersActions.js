@@ -1,9 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
-export function addPlayer(name) {
+export function addPlayer(attr) {
   return {
     type: types.ADD_PLAYER,
-    name,
+    attr
   };
 }
 
@@ -19,4 +19,11 @@ export function starPlayer(id) {
     type: types.STAR_PLAYER,
     id,
   };
+}
+
+export function editPlayer(id, attr) {
+  return {
+    type: types.EDIT_PLAYER,
+    data: {id, attr}
+  }
 }

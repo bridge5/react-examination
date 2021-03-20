@@ -1,37 +1,39 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './PlayerListItem.css';
 
 class PlayerListItem extends Component {
+  delete = (id) => {
+    this.props.deletePlayer(id);
+    this.props.resetCurrentList(id);
+  }
+  star = (id) => {
+    this.props.starPlayer(id);
+  }
   render() {
+    const { id, team, name, starred, position } = this.props;
     return (
       <li className={styles.playerListItem}>
         <div className={styles.playerInfos}>
           <div>
-            <span>{this.props.name}</span>
+            <span>{name}</span>
           </div>
           <div>
             <small>
-              {this.props.team} · {this.props.position}
+              {team} · {position}
             </small>
           </div>
         </div>
         <div className={styles.playerActions}>
           <button
             className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.starPlayer(this.props.id)}
+            onClick={() => this.star(id)}
           >
-            <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
-              })}
-            />
+            <i className={`fa fa-star${starred ? '' : '-o'}`} />
           </button>
           <button
             className={`btn btn-default ${styles.btnAction}`}
-            onClick={() => this.props.deletePlayer(this.props.id)}
+            onClick={() => this.delete(id)}
           >
             <i className="fa fa-trash" />
           </button>
