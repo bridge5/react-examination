@@ -1,0 +1,22 @@
+:local(.pager-bar) {
+    display: flex;
+}
+
+.page-list {
+    display: flex;
+    margin: 0 10px;
+}
+
+.page-item {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.page-item:hover {
+    color: #1890FF;
+}
