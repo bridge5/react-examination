@@ -20,3 +20,10 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export const filterPlayerByPosition = (position) => {
+  return {
+    type: types.FILTER_PLAYER,
+    position
+  }
+}
