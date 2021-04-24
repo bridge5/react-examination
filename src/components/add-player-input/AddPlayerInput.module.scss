@@ -1,0 +1,14 @@
+.addPlayerFeild {
+  display: flex;
+  margin-bottom: 4px;
+  select {
+    padding: 0 10px;
+  }
+  .addPlayerInput {
+    border-radius: 0;
+    border-color: #abaaaa;
+    border-left: 0;
+    border-right: 0;
+    width: 100%;
+  }
+}
