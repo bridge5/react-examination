@@ -1,39 +1,48 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './AddPlayerInput.css';
+import React, { Component } from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import { POS_TYPES, Options } from "../constants/posTypes";
+
+import styles from "./AddPlayerInput.module.scss";
 
 class AddPlayerInput extends Component {
   render() {
     return (
-      <input
-        type="text"
-        autoFocus={true}
-        className={classnames('form-control', styles.addPlayerInput)}
-        placeholder="Type the name of a player"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)}
-      />
+      <div className={styles.addPlayerFeild}>
+        <input
+          type="text"
+          autoFocus={true}
+          className={classnames("form-control", styles.addPlayerInput)}
+          placeholder="Type the name of a player"
+          value={this.state.name}
+          onChange={this.handleChange.bind(this)}
+          onKeyDown={this.handleSubmit.bind(this)}
+        />
+        <select onChange={this.handlePositionSelect}>{Options}</select>
+      </div>
     );
   }
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
-      name: this.props.name || '',
+      name: "",
+      position: POS_TYPES.SF,
     };
   }
 
   handleChange(e) {
     this.setState({ name: e.target.value });
   }
-
+  handlePositionSelect = (e) => {
+    this.setState({ position: e.target.value });
+  };
   handleSubmit(e) {
     const name = e.target.value.trim();
     if (e.which === 13) {
-      this.props.addPlayer(name);
-      this.setState({ name: '' });
+      console.log(this.state.position);
+      this.props.addPlayer({ name, position: this.state.position });
+      this.setState({ name: "" });
     }
   }
 }

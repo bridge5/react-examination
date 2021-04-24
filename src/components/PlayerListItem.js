@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+import React, { Component } from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import styles from "./PlayerListItem.module.scss";
 
 class PlayerListItem extends Component {
   render() {
@@ -23,9 +23,9 @@ class PlayerListItem extends Component {
             onClick={() => this.props.starPlayer(this.props.id)}
           >
             <i
-              className={classnames('fa', {
-                'fa-star': this.props.starred,
-                'fa-star-o': !this.props.starred,
+              className={classnames("fa", {
+                "fa-star": this.props.starred,
+                "fa-star-o": !this.props.starred,
               })}
             />
           </button>
@@ -42,7 +42,7 @@ class PlayerListItem extends Component {
 }
 
 PlayerListItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-:local(.playerListItem) {
+.playerListItem {
   list-style: none;
   padding: 20px 10px 20px 20px;
   background-color: white;
@@ -6,22 +6,22 @@
   display: flex;
 }
 
-:local(.playerInfos) {
+.playerInfos {
   flex: 1 0 auto;
 }
 
-:local(.playerInfos span) {
+.playerInfos span {
   font-weight: bold;
 }
 
-:local(.playerActions) {
+.playerActions {
   flex: 0 0 90px;
 }
 
-:local(.btnAction),
-:local(.btnAction):active,
-:local(.btnAction):focus,
-:local(.btnAction):hover {
+.btnAction,
+.btnAction:active,
+.btnAction:focus,
+.btnAction:hover {
   margin-right: 5px;
   color: #5c75b0;
 }
