@@ -1,9 +1,9 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
-export function addPlayer(name) {
+export function addPlayer(newPlayer) {
   return {
     type: types.ADD_PLAYER,
-    name,
+    newPlayer,
   };
 }
 
@@ -21,9 +21,9 @@ export function starPlayer(id) {
   };
 }
 
-export const filterPlayerByPosition = (position) => {
+export const filterPlayer = (position) => {
   return {
     type: types.FILTER_PLAYER,
-    position
-  }
-}
+    position,
+  };
+};
