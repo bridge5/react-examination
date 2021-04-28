@@ -1,0 +1,10 @@
+.pg-page button {
+  min-width: 32px;
+  margin: 0 2px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.pg-page.active button {
+  border-color:  cadetblue;
+}
