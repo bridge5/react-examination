@@ -1,0 +1,8 @@
+.sp-container {
+  display: flex;
+  justify-content: center;
+}
+.sp-button {
+  min-width: 50px;
+  margin: 5px;
+}

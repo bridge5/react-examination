@@ -2,13 +2,34 @@ import React, { Component } from 'react';
 import styles from './PlayerListApp.css';
 import { connect } from 'react-redux';
 
-import { addPlayer, deletePlayer, starPlayer } from '../actions/PlayersActions';
-import { PlayerList, AddPlayerInput } from '../components';
+import { addPlayer, deletePlayer, starPlayer, selectOption, onPageChange, lists} from '../actions/PlayersActions';
+import { PlayerList, AddPlayerInput, SelectOptions, Pagination } from '../components';
 
 class PlayerListApp extends Component {
+
+  componentDidMount() {
+    this.props.lists({
+      page: 1,
+      pageSize: 5,
+    })
+  }
+
+  onPageChange = (page, pageSize) => {
+    this.props.onPageChange(page, pageSize);
+    this.props.lists({page, pageSize, position: this.props.playerlist.curPosition});
+  }
+
+  onSelect = (position) => {
+    this.props.selectOption(position);
+    this.props.lists({
+      ...this.props.playerlist.pagination,
+      position,
+    })
+  }
+
   render() {
     const {
-      playerlist: { playersById },
+      playerlist: { searchList, pagination },
     } = this.props;
 
     const actions = {
@@ -20,8 +41,10 @@ class PlayerListApp extends Component {
     return (
       <div className={styles.playerListApp}>
         <h1>NBA Players</h1>
+        <SelectOptions onSelect={this.onSelect} />
         <AddPlayerInput addPlayer={actions.addPlayer} />
-        <PlayerList players={playersById} actions={actions} />
+        <PlayerList players={searchList} actions={actions} />
+        <Pagination {...pagination} onChange={this.onPageChange} />
       </div>
     );
   }
@@ -37,5 +60,8 @@ export default connect(
     addPlayer,
     deletePlayer,
     starPlayer,
+    selectOption,
+    onPageChange,
+    lists,
   },
 )(PlayerListApp);

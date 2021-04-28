@@ -39,6 +39,13 @@ const initialState = {
       starred: false,
     },
   ],
+  pagination: {
+    page: 1,
+    pageSize: 5,
+    total: 0,
+  },
+  curPosition: undefined,
+  searchList: [],
 };
 
 export default function players(state = initialState, action) {
@@ -70,7 +77,36 @@ export default function players(state = initialState, action) {
         ...state,
         playersById: players,
       };
-
+    case types.SELECT_OPTION:
+      return {
+        ...state,
+        curPosition: action.position
+      };
+    case types.PAGE_CHANGE:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          page: action.payload.page,
+          pageSize: action.payload.pageSize,
+        }
+      }
+    case types.LISTS:
+      const lists = action.payload.position ? state.playersById.filter(
+        (item) => item.position === action.payload.position,
+      ) : state.playersById.slice();
+      console.log('action.payload', action.payload);
+      const index = (action.payload.page - 1) * action.payload.pageSize;
+      const end = (action.payload.page - 1) * action.payload.pageSize + action.payload.pageSize;
+      const total = lists.length;
+      return {
+        ...state,
+        searchList: lists.slice(index, end),
+        pagination: {
+          ...state.pagination,
+          total,
+        }
+      }
     default:
       return state;
   }
