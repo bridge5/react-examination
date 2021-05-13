@@ -42,7 +42,7 @@ class PlayerListItem extends Component {
 }
 
 PlayerListItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,

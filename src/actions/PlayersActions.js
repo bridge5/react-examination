@@ -20,3 +20,10 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function selectPosition(position) {
+  return {
+    type: types.SELECT_POSITION,
+    position,
+  };
+}
