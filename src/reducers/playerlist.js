@@ -39,10 +39,17 @@ const initialState = {
       starred: false,
     },
   ],
+  position:'SF',
+  pageList:[]
 };
 
 export default function players(state = initialState, action) {
   switch (action.type) {
+    case types.SELECT_POSITION:
+      return {
+        ...state,
+        position: action.position,
+      };
     case types.ADD_PLAYER:
       return {
         ...state,
@@ -51,7 +58,7 @@ export default function players(state = initialState, action) {
           {
             name: action.name,
             team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            position: state.position,
           },
         ],
       };
@@ -69,6 +76,11 @@ export default function players(state = initialState, action) {
       return {
         ...state,
         playersById: players,
+      };
+    case types.SET_PAGE:
+      return {
+        ...state,
+        pageList: action.pageOfItems,
       };
 
     default:

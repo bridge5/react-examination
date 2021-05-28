@@ -1,0 +1,20 @@
+.pagination{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+
+.pagination li > span{
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pagination>.active>span {
+    background: rgb(241 184 34);
+    border-color: #fff;
+}
+
+.pagination>.active>span:hover {
+    border-color: #fff;
+    background:rgb(251 199 62);
+}

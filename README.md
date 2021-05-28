@@ -25,3 +25,8 @@ Building a user friendly interface with React.js, Redux/Mobx and LESS/SCSS.
 - 第一步：克隆这个仓库到你自己的账号里。
 - 第二步：完成下列任务。
 - 第三步：发送 * Pull Request*  到仓库 *bridge5/react-examination*。
+
+
+## 解决
+- css module 是查阅 [这个文档](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
+- 其实。。 我不打篮球。。🤭

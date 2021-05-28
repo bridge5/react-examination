@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+import styles from './PlayerListItem.module.css';
 
 class PlayerListItem extends Component {
   render() {
