@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './PlayerList.css';
+import styles from './PlayerList.module.css';
 import PlayerListItem from './PlayerListItem';
 
 class PlayerList extends Component {

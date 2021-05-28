@@ -20,3 +20,15 @@ export function starPlayer(id) {
     id,
   };
 }
+export function selectPosition(position) {
+  return {
+    type: types.SELECT_POSITION,
+    position,
+  };
+}
+export function setPage(pageOfItems) {
+  return {
+    type: types.SET_PAGE,
+    pageOfItems,
+  };
+}

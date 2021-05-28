@@ -1,0 +1,33 @@
+body {
+  background-color: #f4f3f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx4.sinaimg.cn%2Flarge%2Fa73ad06dgy1fe925sdo8yj20xc0ir459.jpg&refer=http%3A%2F%2Fwx4.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1624775477&t=223e8448284a6c87f368862a22799ff1')
+    no-repeat;
+  background-size: 100% 100%;
+}
+
+:local(.topBar) {
+  display: flex;
+}
+:local(.playerListApp) {
+  width: 580px;
+  margin-top: 10px;
+  padding-top: 18px;
+  background-color: rgb(241 184 34);
+  box-shadow: 0px 0px 11px 3px #2b0d0d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+:local(.playerListApp h1) {
+  color: white;
+  font-size: 25px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+  font-family: Helvetica;
+}
