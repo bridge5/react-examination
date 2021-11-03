@@ -31,7 +31,12 @@ class AddPlayerInput extends Component {
 
   handleSubmit(e) {
     const name = e.target.value.trim();
+    const {playersByIdList} =this.props
     if (e.which === 13) {
+      // 应为通过名称来匹配删除，所以名称不可重复
+      if(playersByIdList.some((item,index)=>item.name===name)){
+        return alert('名称不可重复')
+      }
       this.props.addPlayer(name);
       this.setState({ name: '' });
     }
@@ -40,6 +45,8 @@ class AddPlayerInput extends Component {
 
 AddPlayerInput.propTypes = {
   addPlayer: PropTypes.func.isRequired,
+  playersByIdList: PropTypes.array.isRequired,
+
 };
 
 export default AddPlayerInput;
