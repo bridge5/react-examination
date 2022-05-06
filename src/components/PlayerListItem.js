@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './PlayerListItem.css';
+import './PlayerListItem.css';
 
 class PlayerListItem extends Component {
   render() {
     return (
-      <li className={styles.playerListItem}>
-        <div className={styles.playerInfos}>
+      <li className='playerListItem'>
+        <div className='playerInfos'>
           <div>
             <span>{this.props.name}</span>
           </div>
@@ -17,9 +17,9 @@ class PlayerListItem extends Component {
             </small>
           </div>
         </div>
-        <div className={styles.playerActions}>
+        <div className='playerActions'>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn btn-default ${'btnAction'}`}
             onClick={() => this.props.starPlayer(this.props.id)}
           >
             <i
@@ -30,7 +30,7 @@ class PlayerListItem extends Component {
             />
           </button>
           <button
-            className={`btn btn-default ${styles.btnAction}`}
+            className={`btn btn-default ${'btnAction'}`}
             onClick={() => this.props.deletePlayer(this.props.id)}
           >
             <i className="fa fa-trash" />
