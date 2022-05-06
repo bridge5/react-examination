@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './PlayerList.css';
+import './PlayerList.css';
 import PlayerListItem from './PlayerListItem';
 
 class PlayerList extends Component {
   render() {
     return (
-      <ul className={styles.playerList}>
+      <div>
+      <ul className='playerList'>
         {this.props.players.map((player, index) => {
           return (
             <PlayerListItem
-              key={index}
-              id={index}
+              key={player.id}
+              id={player.id}
               name={player.name}
               team={player.team}
               position={player.position}
@@ -21,6 +22,7 @@ class PlayerList extends Component {
           );
         })}
       </ul>
+        </div>
     );
   }
 }

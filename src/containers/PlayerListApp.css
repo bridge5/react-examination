@@ -4,17 +4,24 @@ body {
   align-items: center;
   justify-content: center;
 }
+.playerListAppPagination{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 
-:local(.playerListApp) {
+
+
+.playerListApp {
   width: 540px;
   margin-top: 10px;
   padding-top: 18px;
-  background-color: #5c75b0;
+  /* background-color: #5c75b0; */
   border: 1px solid #e3e3e3;
 }
 
-:local(.playerListApp h1) {
-  color: white;
+.playerListApp h1 {
+  /* color: white; */
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 10px;
