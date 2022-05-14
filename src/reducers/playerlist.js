@@ -39,6 +39,7 @@ const initialState = {
       starred: false,
     },
   ],
+  currentPage: 0
 };
 
 export default function players(state = initialState, action) {
@@ -61,6 +62,7 @@ export default function players(state = initialState, action) {
         playersById: state.playersById.filter(
           (item, index) => index !== action.id,
         ),
+        currentPage: 0
       };
     case types.STAR_PLAYER:
       let players = [...state.playersById];
@@ -71,6 +73,10 @@ export default function players(state = initialState, action) {
         playersById: players,
       };
 
+    case types.CHANGE_CURRENT_PAGE:
+      return {...state, currentPage: action.page};
+    case types.CHANGE_PLAYER_LIST:
+      return {...state, playersById: action.list};
     default:
       return state;
   }
