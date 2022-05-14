@@ -25,6 +25,10 @@ class AddPlayerInput extends Component {
     };
   }
 
+  componentDidMount() {
+    this.localList();
+  }
+
   handleChange(e) {
     this.setState({ name: e.target.value });
   }
@@ -34,7 +38,12 @@ class AddPlayerInput extends Component {
     if (e.which === 13) {
       this.props.addPlayer(name);
       this.setState({ name: '' });
-    }
+      this.localList();
+    };
+  }
+
+  localList() {
+    window.localStorage.setItem("playerList", JSON.stringify(this.props.players));
   }
 }
 
