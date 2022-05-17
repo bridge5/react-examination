@@ -20,3 +20,13 @@ export function starPlayer(id) {
     id,
   };
 }
+
+export function updatePlayer({id, location}) {
+  return {
+    type: types.UPDATE_PLAYER,
+    payload: {
+      id,
+      location
+    }
+  }
+}
