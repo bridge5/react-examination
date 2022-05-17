@@ -26,7 +26,7 @@ export function updatePlayer({id, location}) {
     type: types.UPDATE_PLAYER,
     payload: {
       id,
-      location
+      location,
     }
   }
 }
