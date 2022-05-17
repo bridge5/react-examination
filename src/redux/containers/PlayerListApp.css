@@ -1,0 +1,24 @@
+body {
+  background-color: #f4f3f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:local(.playerListApp) {
+  width: 540px;
+  margin-top: 10px;
+  padding-top: 18px;
+  background-color: #5c75b0;
+  border: 1px solid #e3e3e3;
+}
+
+:local(.playerListApp h1) {
+  color: white;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  padding-left: 10px;
+  font-family: Helvetica;
+}
