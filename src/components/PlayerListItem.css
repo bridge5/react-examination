@@ -29,3 +29,7 @@
 button:focus {
   outline: 0 !important;
 }
+.playerActions{
+  display: flex;
+  align-items: center;
+}
