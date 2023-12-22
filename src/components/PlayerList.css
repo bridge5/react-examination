@@ -1,4 +1,5 @@
-:local(.playerList) {
+.player-list {
   padding-left: 0;
   margin-bottom: 0;
+  height: 400px;
 }
