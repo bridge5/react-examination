@@ -11,8 +11,15 @@ import "./Pagination.css"; // 根据需要调整样式导入
  * pageSize：每页条数
  * total：总数
  * onChange：改变页码的回调
+ * hideSinglePage：一页时是否隐藏
  */
-const Pagination = ({ current = 1, pageSize = 5, total, onChange }) => {
+const Pagination = ({
+  current = 1,
+  pageSize = 5,
+  total,
+  onChange,
+  hideSinglePage = false,
+}) => {
   // 使用状态钩子来追踪当前页码
   const [currentPage, setCurrentPage] = useState(current);
 
@@ -37,6 +44,7 @@ const Pagination = ({ current = 1, pageSize = 5, total, onChange }) => {
         <button
           key={i}
           className={currentPage === i ? "active" : ""}
+          style={{ width: 34 }}
           onClick={() => handlePageChange(i)}
         >
           {i}
@@ -51,27 +59,30 @@ const Pagination = ({ current = 1, pageSize = 5, total, onChange }) => {
     setCurrentPage(current);
   }, [current]);
 
+  // 只有一页时是否隐藏分页器
+  if (hideSinglePage && totalPages === 1) {
+    return <></>;
+  }
+
   return (
-    <div>
-      <div className="pagination-container">
-        <span>{pageSize}条/页</span>
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          上一页
-        </button>
+    <div className="pagination-container">
+      <span>{pageSize}条/页</span>
+      <button
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        上一页
+      </button>
 
-        {renderPageNumbers()}
+      {renderPageNumbers()}
 
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          下一页
-        </button>
-        <span>共: {total}条</span>
-      </div>
+      <button
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        下一页
+      </button>
+      <span>共: {total}条</span>
     </div>
   );
 };

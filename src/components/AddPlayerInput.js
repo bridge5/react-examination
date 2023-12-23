@@ -1,34 +1,27 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import styles from "./AddPlayerInput.css";
 
-// 定义球员位置
-const PLAYER_POSITION = ["SF", "PF", "PG", "SG"];
-// 定义球队
-const PLAYER_TEAM = [
-  "LOS ANGELES LAKERS",
-  "GOLDEN STATE WARRIORS",
-  "NEW ORLEANS PELICANS",
-  "HOUSTON ROCKETS",
-  "TORONTO RAPTORS",
-];
+import { PLAYER_POSITION, PLAYER_TEAM } from "../constants";
 
-const AddPlayerInput = ({ addPlayer, addPlayerSuccessCallback }) => {
+import styles from "./AddPlayerInput.module.css";
+
+const AddPlayerInput = ({ handleAddPlayer, addPlayerSuccessCallback }) => {
   // 球员基本信息
   const [playerInfo, setPlayerInfo] = useState({
     name: "",
-    position: PLAYER_POSITION[0],
-    team: PLAYER_TEAM[0],
+    position: PLAYER_POSITION[0].value,
+    team: PLAYER_TEAM[0].value,
   });
 
   const handleSubmit = (e) => {
     if (e.which === 13 && playerInfo?.name !== "") {
-      addPlayer(playerInfo);
+      handleAddPlayer(playerInfo);
+      // 添加成功后初始化数据、并重新请求数据
       setPlayerInfo({
         name: "",
-        position: PLAYER_POSITION[0],
-        team: PLAYER_TEAM[0],
+        position: PLAYER_POSITION[0].value,
+        team: PLAYER_TEAM[0].value,
       });
       addPlayerSuccessCallback();
     }
@@ -37,23 +30,22 @@ const AddPlayerInput = ({ addPlayer, addPlayerSuccessCallback }) => {
   return (
     <>
       <h3>add player:</h3>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <span>球员姓名：</span>
+      <div className={styles["add-player-layout"]}>
+        <span className={styles["label"]}>球员姓名：</span>
         <input
-          style={{ width: "200px", marginRight: "20px" }}
           type="text"
           autoFocus={true}
           className={classnames("form-control", styles.addPlayerInput)}
-          placeholder="Type the name of a player"
+          placeholder="请输入球员姓名"
           value={playerInfo?.name}
           onChange={(e) =>
             setPlayerInfo({ ...playerInfo, name: e.target.value.trim() })
           }
           onKeyDown={handleSubmit}
         />
-        <span>球员位置：</span>
+        <span className={styles["label"]}>球员位置：</span>
         <select
-          style={{ width: "200px", margin: "0 20px" }}
+          className={styles["select"]}
           value={playerInfo?.position}
           onChange={(e) => {
             // 这里不能用 e.target.value
@@ -62,16 +54,17 @@ const AddPlayerInput = ({ addPlayer, addPlayerSuccessCallback }) => {
               position: e.nativeEvent.target.value,
             });
           }}
+          onKeyDown={handleSubmit}
         >
-          {PLAYER_POSITION.map((item) => (
-            <option key={item} value={item}>
-              {item}
+          {PLAYER_POSITION.map(({ label, value }) => (
+            <option key={value} value={value}>
+              {label}
             </option>
           ))}
         </select>
-        <span>所属团队：</span>
+        <span className={styles["label"]}>所属团队：</span>
         <select
-          style={{ width: "200px", margin: "0 20px" }}
+          className={styles["select"]}
           value={playerInfo?.position}
           onChange={(e) => {
             //  这里不能用 e.target.value
@@ -80,10 +73,11 @@ const AddPlayerInput = ({ addPlayer, addPlayerSuccessCallback }) => {
               team: e.nativeEvent.target.value,
             });
           }}
+          onKeyDown={handleSubmit}
         >
-          {PLAYER_TEAM.map((team) => (
-            <option key={team} value={team}>
-              {team}
+          {PLAYER_TEAM.map(({ label, value }) => (
+            <option key={value} value={value}>
+              {label}
             </option>
           ))}
         </select>
@@ -93,7 +87,7 @@ const AddPlayerInput = ({ addPlayer, addPlayerSuccessCallback }) => {
 };
 
 AddPlayerInput.propTypes = {
-  addPlayer: PropTypes.func.isRequired,
+  handleAddPlayer: PropTypes.func.isRequired,
   addPlayerSuccessCallback: PropTypes.func.isRequired,
 };
 

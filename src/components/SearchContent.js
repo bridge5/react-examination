@@ -5,20 +5,20 @@
 import React from "react";
 import classnames from "classnames";
 
-import styles from "./AddPlayerInput.css";
+import { PLAYER_POSITION, PLAYER_TEAM } from "../constants";
+
+import styles from "./AddPlayerInput.module.css";
 
 const SearchContent = ({ filterParams, setFilterParams }) => {
   return (
     <div>
       <h3>search player:</h3>
-
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <span>球员姓名：</span>
+      <div className={styles["add-player-layout"]}>
+        <span className={styles["label"]}>球员姓名：</span>
         <input
-          style={{ width: "200px", marginRight: "20px" }}
           type="text"
           className={classnames("form-control", styles.addPlayerInput)}
-          placeholder="请输入球员姓名"
+          placeholder="请搜索球员姓名"
           value={filterParams?.keyword}
           onChange={(e) =>
             setFilterParams({
@@ -27,42 +27,46 @@ const SearchContent = ({ filterParams, setFilterParams }) => {
             })
           }
         />
-        {/* <span>球员位置：</span>
+        <span className={styles["label"]}>球员位置：</span>
         <select
-          style={{ width: "200px", margin: "0 20px" }}
-          value={playerInfo?.position}
+          className={styles["select"]}
+          value={filterParams?.position}
           onChange={(e) => {
             // 这里不能用 e.target.value
-            setPlayerInfo({
-              ...playerInfo,
+            setFilterParams({
+              ...filterParams,
               position: e.nativeEvent.target.value,
             });
           }}
         >
-          {PLAYER_POSITION.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
+          {[{ label: "所有", value: "" }, ...PLAYER_POSITION].map(
+            ({ label, value }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            )
+          )}
         </select>
-        <span>所属团队：</span>
+        <span className={styles["label"]}>所属团队：</span>
         <select
-          style={{ width: "200px", margin: "0 20px" }}
-          value={playerInfo?.position}
+          className={styles["select"]}
+          value={filterParams?.team}
           onChange={(e) => {
             //  这里不能用 e.target.value
-            setPlayerInfo({
-              ...playerInfo,
+            setFilterParams({
+              ...filterParams,
               team: e.nativeEvent.target.value,
             });
           }}
         >
-          {PLAYER_TEAM.map((team) => (
-            <option key={team} value={team}>
-              {team}
-            </option>
-          ))}
-        </select> */}
+          {[{ label: "所有", value: "" }, ...PLAYER_TEAM].map(
+            ({ label, value }) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            )
+          )}
+        </select>
       </div>
     </div>
   );

@@ -22,11 +22,9 @@ export function starPlayer(id) {
 }
 
 // 获取最新球员的信息
-export const getLatestPlayerData = ({ page, pageSize, keyword }) => {
+export const getLatestPlayerData = (params) => {
   return {
     type: types.GET_LATEST_PLAYER_LIST,
-    page,
-    pageSize,
-    keyword,
+    ...params,
   };
 };

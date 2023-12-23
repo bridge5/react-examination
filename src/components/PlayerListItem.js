@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import styles from "./PlayerListItem.css";
+import styles from "./PlayerListItem.module.css";
 
 const PlayerListItem = ({
   id,
@@ -9,13 +9,13 @@ const PlayerListItem = ({
   team,
   position,
   starred,
-  starPlayer,
-  deletePlayer,
-  getLatestPlayerData,
+  handleDeletePlayer,
+  handleStarPlayer,
+  successCallback,
 }) => {
   return (
-    <li className={styles.playerListItem}>
-      <div className={styles.playerInfos}>
+    <li className={styles["playerListItem"]}>
+      <div className={styles["playerInfos"]}>
         <div>
           <span>{name}</span>
         </div>
@@ -25,10 +25,13 @@ const PlayerListItem = ({
           </small>
         </div>
       </div>
-      <div className={styles.playerActions}>
+      <div className={styles["playerActions"]}>
         <button
-          className={`btn btn-default ${styles.btnAction}`}
-          onClick={() => starPlayer(id)}
+          className={`btn btn-default ${styles["btnAction"]}`}
+          onClick={() => {
+            handleStarPlayer(id);
+            successCallback();
+          }}
         >
           <i
             className={classnames("fa", {
@@ -40,8 +43,8 @@ const PlayerListItem = ({
         <button
           className={`btn btn-default ${styles.btnAction}`}
           onClick={() => {
-            deletePlayer(id);
-            getLatestPlayerData();
+            handleDeletePlayer(id);
+            successCallback();
             // TODO：这里如果删除后请求的数据为空，应该重新去请求上一页的数据
           }}
         >
@@ -58,8 +61,9 @@ PlayerListItem.propTypes = {
   team: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   starred: PropTypes.bool,
-  starPlayer: PropTypes.func.isRequired,
-  deletePlayer: PropTypes.func.isRequired,
+  handleDeletePlayer: PropTypes.func.isRequired,
+  handleStarPlayer: PropTypes.func.isRequired,
+  successCallback: PropTypes.func.isRequired,
 };
 
 export default PlayerListItem;
