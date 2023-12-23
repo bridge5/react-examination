@@ -1,74 +1,127 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
 const initialState = {
+  // 这里相当于是数据库
   playersById: [
     {
-      name: 'LeBron James',
-      team: 'LOS ANGELES LAKERS',
-      position: 'SF',
+      id: 1,
+      name: "LeBron James",
+      team: "LOS ANGELES LAKERS",
+      position: "SF",
       starred: true,
     },
     {
-      name: 'Kevin Duran',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'SF',
+      id: 2,
+      name: "Kevin Duran",
+      team: "GOLDEN STATE WARRIORS",
+      position: "SF",
       starred: false,
     },
     {
-      name: 'Anthony Davis',
-      team: 'NEW ORLEANS PELICANS',
-      position: 'PF',
+      id: 3,
+      name: "Anthony Davis",
+      team: "NEW ORLEANS PELICANS",
+      position: "PF",
       starred: false,
     },
     {
-      name: 'Stephen Curry',
-      team: 'GOLDEN STATE WARRIORS',
-      position: 'PG',
+      id: 4,
+      name: "Stephen Curry",
+      team: "GOLDEN STATE WARRIORS",
+      position: "PG",
       starred: false,
     },
     {
-      name: 'James Harden',
-      team: 'HOUSTON ROCKETS',
-      position: 'SG',
+      id: 5,
+      name: "James Harden",
+      team: "HOUSTON ROCKETS",
+      position: "SG",
       starred: false,
     },
     {
-      name: 'Kawhi Leonard',
-      team: 'TORONTO RAPTORS',
-      position: 'SF',
+      id: 6,
+      name: "Kawhi Leonard",
+      team: "TORONTO RAPTORS",
+      position: "SF",
       starred: false,
     },
   ],
+  total: 6,
+  // 这里是给前端显示的数据
+  showPlayersById: [],
 };
 
 export default function players(state = initialState, action) {
   switch (action.type) {
+    // 添加
     case types.ADD_PLAYER:
+      const { playerInfo } = action;
+
+      // 将时间戳作为默认id
+      var id = new Date().getTime();
+
       return {
         ...state,
         playersById: [
-          ...state.playersById,
           {
-            name: action.name,
-            team: 'LOS ANGELES LAKERS',
-            position: 'SF',
+            id,
+            name: playerInfo.name,
+            team: playerInfo.team,
+            position: playerInfo.position,
+            starred: false,
           },
+          ...state.playersById,
         ],
       };
+
+    // 删除
     case types.DELETE_PLAYER:
       return {
         ...state,
         playersById: state.playersById.filter(
-          (item, index) => index !== action.id,
+          (item) => item?.id !== action?.id
         ),
       };
+
+    // 收藏
     case types.STAR_PLAYER:
-      let players = [...state.playersById];
-      let player = players.find((item, index) => index === action.id);
-      player.starred = !player.starred;
+      try {
+        const { id } = action;
+        let clonePlayers = JSON.parse(JSON.stringify(state.playersById));
+        let player = clonePlayers.find((item) => item?.id === id);
+        player.starred = !player.starred;
+        return {
+          ...state,
+          playersById: clonePlayers,
+        };
+      } catch (error) {
+        console.error(error);
+      }
+
+    // 获取数据列表
+    case types.GET_LATEST_PLAYER_LIST:
+      const { page, pageSize, keyword, position, team } = action;
+      // 先根据查询条件去过滤数据
+      const data =
+        state.playersById.filter(
+          (player) =>
+            player?.name?.toLowerCase()?.includes(keyword?.toLowerCase()) &&
+            player?.position?.includes(position) &&
+            player?.team?.includes(team)
+        ) || [];
+
+      // 计算切片的起始和结束索引
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+
+      // 获取对应页码的数据切片
+      const updatedPlayers = data.slice(startIndex, endIndex);
+
+      // 这里是给前端返回的数据
       return {
         ...state,
-        playersById: players,
+        showPlayersById: updatedPlayers,
+        total: data?.length || 0,
       };
 
     default:

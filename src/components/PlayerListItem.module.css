@@ -16,6 +16,7 @@
 
 :local(.playerActions) {
   flex: 0 0 90px;
+  display: flex;
 }
 
 :local(.btnAction),

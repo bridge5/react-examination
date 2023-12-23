@@ -1,9 +1,9 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
-export function addPlayer(name) {
+export function addPlayer(playerInfo) {
   return {
     type: types.ADD_PLAYER,
-    name,
+    playerInfo,
   };
 }
 
@@ -20,3 +20,11 @@ export function starPlayer(id) {
     id,
   };
 }
+
+// 获取最新球员的信息
+export const getLatestPlayerData = (params) => {
+  return {
+    type: types.GET_LATEST_PLAYER_LIST,
+    ...params,
+  };
+};

@@ -1,0 +1,32 @@
+h3 {
+  color: #fff;
+  font-size: 16px;
+}
+
+.add-player-layout {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  margin-left: 20px;
+  color: #e9eada;
+}
+
+.add-player-layout :first-child {
+  margin-left: 0;
+}
+
+.addPlayerInput {
+  width: 200px;
+  border-radius: 0;
+  border-color: #abaaaa;
+  border-left: 0;
+  border-right: 0;
+}
+
+.select {
+  width: 200px;
+  height: 34px;
+  margin: "0 20px";
+}
